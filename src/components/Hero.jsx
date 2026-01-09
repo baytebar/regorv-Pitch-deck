@@ -1,4 +1,4 @@
-import { Globe, Sprout, TrendingUp, User } from 'lucide-react';
+import { Globe, Sprout, TrendingUp, User, Menu, Bell, Search, Leaf, Store, Users, Tractor, UserCheck, Home } from 'lucide-react';
 import { motion } from 'framer-motion';
 import regrovLogo from '../public/images/regrov.png';
 
@@ -61,54 +61,51 @@ const Hero = () => {
 
           {/* Right Visual - Abstract Representation */}
           <motion.div
-            className="hero-visual"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 1 }}
+            className="phone-mockup"
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
-            <div className="abstract-phone">
-              <div className="phone-bezel">
-                <div className="phone-notch"></div>
+            <div className="notch"></div>
+            <div className="app-screen">
+              <div className="brand-center">
+                <motion.img
+                  src={regrovLogo}
+                  alt="Regrov Logo"
+                  className="logo-img"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 0.9, scale: 1 }}
+                  transition={{ delay: 1, duration: 1 }}
+                />
               </div>
-              <div className="screen-content">
-                <div className="brand-center">
-                  <motion.img 
-                    src={regrovLogo} 
-                    alt="Regrov Logo" 
-                    className="logo-img"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 0.9, scale: 1 }}
-                    transition={{ delay: 1, duration: 1 }}
-                  />
-                </div>
-                
-                <div className="floating-card c1">
-                  <div className="icon-box">
-                    <Sprout size={20} />
-                  </div>
-                  <div className="text-box">
-                    <div className="line l1"></div>
-                    <div className="line l2"></div>
-                  </div>
-                </div>
-                <div className="floating-card c2">
-                  <div className="icon-box">
-                    <TrendingUp size={20} />
-                  </div>
-                  <div className="text-box">
-                    <span>Market Rate</span>
-                    <strong>+15%</strong>
-                  </div>
-                </div>
-                <div className="floating-card c3">
-                  <div className="user-face-icon">
-                    <User size={18} />
-                  </div>
-                  <span>"Sold in 2hrs!"</span>
-                </div>
-              </div>
-              <div className="glow-effect"></div>
             </div>
+
+            <div className="floating-card c1">
+              <div className="icon-box">
+                <Sprout size={20} />
+              </div>
+              <div className="text-box">
+                <div className="line l1"></div>
+                <div className="line l2"></div>
+              </div>
+            </div>
+            <div className="floating-card c2">
+              <div className="icon-box">
+                <TrendingUp size={20} />
+              </div>
+              <div className="text-box">
+                <span>Market Rate</span>
+                <strong>+15%</strong>
+              </div>
+            </div>
+            <div className="floating-card c3">
+              <div className="user-face-icon">
+                <User size={18} />
+              </div>
+              <span>"Sold in 2hrs!"</span>
+            </div>
+            <div className="glow-effect"></div>
           </motion.div>
         </div>
       </div>
@@ -142,11 +139,17 @@ const Hero = () => {
           margin: 0 auto;
         }
 
-        @media (min-width: 900px) {
+        @media (min-width: 1080px) {
           .hero-grid {
             grid-template-columns: 1.2fr 1fr;
             justify-items: center;
           }
+        }
+        
+        @media (max-width: 1079px) {
+           .hero-content {
+             margin-top: 5rem;
+           }
         }
 
         .hero-content {
@@ -231,75 +234,92 @@ const Hero = () => {
            background: rgba(255,255,255,0.1);
         }
 
-        /* Abstract Visuals */
-        .hero-visual {
-           position: relative;
-           height: 100%;
-           display: flex;
-           align-items: center;
-           justify-content: center;
+        /* Phone Styles */
+        .phone-mockup {
+            width: 320px;
+            height: 650px;
+            background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+            border-radius: 45px;
+            padding: 12px;
+            box-shadow: 
+                0 0 0 2px #0a0a0a,
+                0 0 0 6px #3a3a3a,
+                0 30px 60px -15px rgba(0, 0, 0, 0.7),
+                inset 0 1px 2px rgba(255,255,255,0.1);
+            position: relative;
+            overflow: visible;
         }
 
-        .abstract-phone {
-           width: 320px;
-           height: 600px;
-           background: #FFFFFF;
-           border-radius: 48px;
-           border: 1px solid rgba(0,0,0,0.05);
-           position: relative;
-           transform: rotate(-10deg);
-           box-shadow: 0 40px 100px rgba(0,0,0,0.4);
-           z-index: 1; /* Ensure phone is above the glow */
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 80px;
+            right: -3px;
+            width: 3px;
+            height: 50px;
+            background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
+            border-radius: 0 2px 2px 0;
         }
 
-        .phone-bezel {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          border: 12px solid #000000;
-          background: linear-gradient(135deg, 
-            #000000 0%, 
-            #000000 40%, 
-            #ffffff 45%, 
-            #ffffff 50%, 
-            #000000 55%, 
-            #000000 100%
-          );
-          -webkit-mask: 
-             linear-gradient(#fff 0 0) content-box, 
-             linear-gradient(#fff 0 0);
-          -webkit-mask-composite: xor;
-          mask-composite: exclude;
-          border-radius: 46px;
-          pointer-events: none;
-          z-index: 10;
+        .phone-mockup::after {
+            content: '';
+            position: absolute;
+            top: 150px;
+            left: -3px;
+            width: 3px;
+            height: 80px;
+            background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
+            border-radius: 2px 0 0 2px;
         }
 
-        .phone-notch {
-          position: absolute;
-          top: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 140px;
-          height: 30px;
-          background: #2b2a2aff;
-          border-bottom-left-radius: 24px;
-          border-bottom-right-radius: 24px;
-          z-index: 11;
+        .notch {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 28px;
+            background: #0a0a0a;
+            border-radius: 0 0 18px 18px;
+            z-index: 10;
+            box-shadow: inset 0 -2px 4px rgba(0,0,0,0.3);
         }
 
-        .screen-content {
-           position: relative;
-           width: 100%;
-           height: 100%;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           background: #FFFFFF; /* Pure white screen */
-           border-radius: 40px;
-           overflow: visible; /* Let cards pop out */
+        .notch::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 6px;
+            background: #1a1a1a;
+            border-radius: 3px;
+        }
+
+        .notch::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: 20px;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #1a3a2a, #0a1a0a);
+            border-radius: 50%;
+            box-shadow: 0 0 4px rgba(0,255,100,0.3);
+        }
+
+        .app-screen {
+            height: 100%;
+            width: 100%;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 35px;
+            border-radius: 35px;
+            overflow: visible;
+            position: relative;
         }
 
         .brand-center {
@@ -315,30 +335,30 @@ const Hero = () => {
           height: auto;
           object-fit: contain;
         }
-
+        
         .floating-card {
            position: absolute;
-           background: rgba(255, 255, 255, 0.95);
-           backdrop-filter: blur(15px);
+           background: var(--color-surface);
            border-radius: 20px;
            padding: 1.25rem;
-           box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+           box-shadow: 0 10px 30px rgba(0,0,0,0.2);
            display: flex;
            align-items: center;
            gap: 16px;
-           border: 1px solid rgba(255,255,255,1);
+           border: 1px solid rgba(255,255,255,0.1);
            animation: float 6s ease-in-out infinite;
-           z-index: 20;
-           color: var(--color-text-dark);
+           z-index: 21;
+           color: rgba(255,255,255,1);
+
         }
 
         .floating-card strong {
-          color: var(--color-bg);
+          color: white;
           font-size: 1.25rem;
         }
 
         .floating-card span {
-          color: rgba(0,0,0,0.6);
+          color: white;
           font-weight: 500;
         }
 
@@ -373,7 +393,7 @@ const Hero = () => {
            background: var(--color-accent);
            filter: blur(140px);
            opacity: 0.15;
-           z-index: -1; /* Place behind abstract-phone */
+           z-index: -1; 
            border-radius: 50%;
            pointer-events: none;
         }
@@ -389,6 +409,57 @@ const Hero = () => {
           color: #1a4d2e;
           flex-shrink: 0;
         }
+      
+      // responsive 
+      // upto 1400px
+      @media (max-width: 1400px) {
+        .phone-mockup {
+            transform: scale(0.9);
+        }
+      }
+      
+      // upto 1200px
+      @media (max-width: 1200px) {
+        .phone-mockup {
+            transform: scale(0.85);
+        }
+      }
+      
+      // upto 1024px
+      @media (max-width: 1080px) {
+         .phone-mockup {
+             transform: scale(0.9);
+         }
+      }
+      
+      // upto 768px
+      @media (max-width: 768px) {
+        .phone-mockup {
+             transform: scale(0.8);
+         }
+      }
+      
+      // upto 425px
+      @media (max-width: 425px) {
+        .phone-mockup {
+             transform: scale(0.7);
+         }
+      }
+      
+      // upto 375px
+      @media (max-width: 375px) {
+          .phone-mockup {
+             transform: scale(0.65);
+         }
+      }
+      
+      // upto 320px
+      @media (max-width: 320px) {
+         .phone-mockup {
+             transform: scale(0.6);
+         }
+      }
+      
       `}</style>
     </div>
   );
