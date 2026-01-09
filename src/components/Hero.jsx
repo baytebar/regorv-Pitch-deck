@@ -139,11 +139,17 @@ const Hero = () => {
           margin: 0 auto;
         }
 
-        @media (min-width: 900px) {
+        @media (min-width: 1080px) {
           .hero-grid {
             grid-template-columns: 1.2fr 1fr;
             justify-items: center;
           }
+        }
+        
+        @media (max-width: 1079px) {
+           .hero-content {
+             margin-top: 5rem;
+           }
         }
 
         .hero-content {
@@ -408,40 +414,50 @@ const Hero = () => {
       // upto 1400px
       @media (max-width: 1400px) {
         .phone-mockup {
-          width: 280px;
-          height: 580px;
-          border-radius: 40px;
+            transform: scale(0.9);
         }
       }
       
       // upto 1200px
       @media (max-width: 1200px) {
-        
+        .phone-mockup {
+            transform: scale(0.85);
+        }
       }
       
       // upto 1024px
-      @media (max-width: 1024px) {
-        
+      @media (max-width: 1080px) {
+         .phone-mockup {
+             transform: scale(0.9);
+         }
       }
       
       // upto 768px
       @media (max-width: 768px) {
-        
+        .phone-mockup {
+             transform: scale(0.8);
+         }
       }
       
       // upto 425px
       @media (max-width: 425px) {
-        
+        .phone-mockup {
+             transform: scale(0.7);
+         }
       }
       
       // upto 375px
       @media (max-width: 375px) {
-        
+          .phone-mockup {
+             transform: scale(0.65);
+         }
       }
       
       // upto 320px
       @media (max-width: 320px) {
-        
+         .phone-mockup {
+             transform: scale(0.6);
+         }
       }
       
       `}</style>
