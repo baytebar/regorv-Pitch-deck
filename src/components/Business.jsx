@@ -94,6 +94,7 @@ const Business = () => {
            background: #102A1E;
            display: flex;
            align-items: center;
+           justify-content: center;
         }
 
         .two-col-grid {
@@ -101,11 +102,16 @@ const Business = () => {
            grid-template-columns: 1fr;
            gap: 4rem;
            align-items: center;
+           justify-items: center;
+           width: 100%;
+           max-width: 1200px;
+           margin: 0 auto;
         }
 
         @media (min-width: 900px) {
            .two-col-grid {
               grid-template-columns: 1fr 1fr;
+              justify-items: center;
            }
         }
 
@@ -116,6 +122,15 @@ const Business = () => {
            font-size: 0.8rem;
            margin-bottom: 1rem;
            display: block;
+        }
+
+        .revenue-section {
+           text-align: center;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           width: 100%;
+           max-width: 600px;
         }
 
         .revenue-section h2 {
@@ -178,6 +193,8 @@ const Business = () => {
            padding: 3rem;
            border-radius: 32px;
            border: 1px solid rgba(255,255,255,0.05);
+           width: 100%;
+           max-width: 600px;
         }
 
         .gtm-section h3 {

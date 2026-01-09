@@ -158,6 +158,7 @@ const Solution = () => {
                     background: radial-gradient(circle at top right, #163B24 0%, #0D2818 100%);
                     display: flex;
                     align-items: center;
+                    justify-content: center;
                     overflow: hidden;
                 }
 
@@ -167,12 +168,17 @@ const Solution = () => {
                     gap: 3rem;
                     height: 100%;
                     align-items: center;
+                    justify-items: center;
+                    width: 100%;
+                    max-width: 1200px;
+                    margin: 0 auto;
                 }
 
                 @media(min-width: 900px) {
                     .solution-split {
                         grid-template-columns: 1fr 1.2fr;
                         gap: 5rem;
+                        justify-items: center;
                     }
                 }
 
@@ -377,9 +383,17 @@ const Solution = () => {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+                    align-items: center;
+                    text-align: center;
                 }
 
-                .text-block { margin-bottom: 3rem; }
+                .text-block { 
+                    margin-bottom: 3rem; 
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
                 
                 .tag {
                     color: var(--color-accent);
@@ -409,6 +423,7 @@ const Solution = () => {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     gap: 1.5rem;
+                    justify-items: center;
                 }
 
                 .feature-card {

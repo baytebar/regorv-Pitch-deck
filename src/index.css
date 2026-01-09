@@ -87,11 +87,29 @@ h6 {
   overflow: hidden;
 }
 
+.snap-section.footer-section {
+  scroll-snap-align: end;
+  min-height: auto;
+  height: auto;
+  align-items: flex-start;
+  padding: 0;
+}
+
 .container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.container.h-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Utility Classes */

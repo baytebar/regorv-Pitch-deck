@@ -8,7 +8,7 @@ import Solution from './components/Solution';
 import Business from './components/Business';
 import Roadmap from './components/Roadmap';
 import Team from './components/Team';
-import Ask from './components/Ask';
+import Footer from './components/Footer';
 
 function App() {
     const [activeSlide, setActiveSlide] = useState(0);
@@ -17,12 +17,11 @@ function App() {
     const slides = [
         { id: 'hero', component: <Hero /> },
         { id: 'problem', component: <Problem /> },
-        { id: 'market', component: <Market /> },
         { id: 'solution', component: <Solution /> },
+        { id: 'market', component: <Market /> },
         { id: 'business', component: <Business /> },
         { id: 'roadmap', component: <Roadmap /> },
-        { id: 'team', component: <Team /> },
-        { id: 'ask', component: <Ask /> }
+        { id: 'team', component: <Team /> }
     ];
 
     const handleScroll = () => {
@@ -63,6 +62,9 @@ function App() {
                         {slide.component}
                     </section>
                 ))}
+                <section id="footer" className="snap-section footer-section">
+                    <Footer />
+                </section>
             </main>
         </div>
     );

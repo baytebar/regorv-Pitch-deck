@@ -75,6 +75,7 @@ const Problem = () => {
           background: #0A0F0D; /* Almost black */
           display: flex;
           align-items: center;
+          justify-content: center;
           position: relative;
         }
 
@@ -84,11 +85,16 @@ const Problem = () => {
           gap: 4rem;
           height: 100%;
           align-items: center;
+          justify-items: center;
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
         }
 
         @media (min-width: 900px) {
           .problem-grid {
             grid-template-columns: 1fr 1fr;
+            justify-items: center;
           }
         }
 
@@ -99,6 +105,13 @@ const Problem = () => {
           font-weight: 700;
           margin-bottom: 1rem;
           display: block;
+        }
+
+        .text-side {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
         .text-side h2 {
@@ -123,6 +136,8 @@ const Problem = () => {
         .stat-highlight {
           border-left: 4px solid #ff6b6b;
           padding-left: 1.5rem;
+          text-align: left;
+          align-self: center;
         }
 
         .stat-highlight strong {
@@ -141,6 +156,7 @@ const Problem = () => {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 1.5rem;
+          justify-items: center;
         }
 
         .problem-card {
