@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Navigation from './components/Navigation';
 import SlideNavigator from './components/SlideNavigator';
 import Hero from './components/Hero';
@@ -57,7 +57,7 @@ function App() {
                 className="snap-container"
                 onScroll={handleScroll}
             >
-                {slides.map((slide, index) => (
+                {slides.map((slide) => (
                     <section key={slide.id} id={slide.id} className="snap-section">
                         {slide.component}
                     </section>

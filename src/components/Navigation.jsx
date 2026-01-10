@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import logo from '../public/images/logo.svg';
 
 const Navigation = () => {
    const [scrolled, setScrolled] = useState(false);
@@ -11,7 +12,7 @@ const Navigation = () => {
             setScrolled(container.scrollTop > 50);
          }
       };
-      
+
       const container = document.querySelector('.snap-container');
       if (container) {
          container.addEventListener('scroll', handleScroll);
@@ -44,14 +45,14 @@ const Navigation = () => {
    };
 
    return (
-      <motion.nav 
+      <motion.nav
          className={`navbar ${scrolled ? 'scrolled' : ''}`}
          initial={{ y: -100, opacity: 0 }}
          animate={{ y: 0, opacity: 1 }}
          transition={{ duration: 0.6, ease: 'easeOut' }}
       >
          <div className="container nav-container">
-            <motion.div 
+            <motion.div
                className="logo"
                initial={{ opacity: 0, x: -20 }}
                animate={{ opacity: 1, x: 0 }}
@@ -61,16 +62,16 @@ const Navigation = () => {
                whileHover={{ scale: 1.05 }}
                whileTap={{ scale: 0.95 }}
             >
-               Regrov
+               <img src={logo} alt="Regrov" style={{ height: '40px', width: 'auto' }} />
             </motion.div>
-            <motion.div 
+            <motion.div
                className="nav-links"
                initial={{ opacity: 0, x: 20 }}
                animate={{ opacity: 1, x: 0 }}
                transition={{ duration: 0.6, delay: 0.3 }}
             >
-               <a 
-                  href="#solution" 
+               <a
+                  href="#solution"
                   onClick={(e) => {
                      e.preventDefault();
                      scrollToSection('solution');
@@ -78,7 +79,7 @@ const Navigation = () => {
                >
                   Features
                </a>
-               <a 
+               <a
                   href="#roadmap"
                   onClick={(e) => {
                      e.preventDefault();
@@ -87,7 +88,7 @@ const Navigation = () => {
                >
                   Roadmap
                </a>
-               <a 
+               <a
                   href="#team"
                   onClick={(e) => {
                      e.preventDefault();
@@ -96,7 +97,7 @@ const Navigation = () => {
                >
                   Team
                </a>
-               <motion.button 
+               <motion.button
                   className="nav-btn"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

@@ -1,4 +1,4 @@
-import { DollarSign, Megaphone, Target, ArrowRight } from 'lucide-react';
+import { DollarSign, Megaphone, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Business = () => {
@@ -74,7 +74,7 @@ const Business = () => {
                             <div className="gtm-step">
                                 <span className="step-count">02</span>
                                 <h4>Digital Viral</h4>
-                                <p>Referral program: "Invite a farmer, get free soil test".</p>
+                                <p>Referral program: &quot;Invite a farmer, get free soil test&quot;.</p>
                             </div>
                             <div className="line"></div>
                             <div className="gtm-step">

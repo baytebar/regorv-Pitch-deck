@@ -1,4 +1,4 @@
-import { Flag, Map, Cpu, Globe, Hammer } from 'lucide-react';
+import { Flag, Map, Cpu, Hammer } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Roadmap = () => {

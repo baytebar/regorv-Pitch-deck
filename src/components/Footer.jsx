@@ -1,5 +1,6 @@
 import { Mail, Instagram, ArrowUp, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
+import logo from '../public/images/logo.svg';
 
 const Footer = () => {
     const scrollToTop = () => {
@@ -38,7 +39,7 @@ const Footer = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h3 className="footer-logo">Regrov</h3>
+                        <img src={logo} alt="Regrov" style={{ height: '50px', width: 'auto', marginBottom: '1rem' }} />
                         <p className="footer-tagline">
                             "To become the world's most trusted digital ecosystem for farmers."
                         </p>

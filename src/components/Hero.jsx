@@ -1,6 +1,6 @@
 import { Globe, Sprout, TrendingUp, User, Menu, Bell, Search, Leaf, Store, Users, Tractor, UserCheck, Home } from 'lucide-react';
 import { motion } from 'framer-motion';
-import regrovLogo from '../public/images/regrov.png';
+import regrovLogo from '../public/images/regrov-icon.png';
 
 const Hero = () => {
   return (
@@ -60,53 +60,55 @@ const Hero = () => {
           </div>
 
           {/* Right Visual - Abstract Representation */}
-          <motion.div
-            className="phone-mockup"
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="notch"></div>
-            <div className="app-screen">
-              <div className="brand-center">
-                <motion.img
-                  src={regrovLogo}
-                  alt="Regrov Logo"
-                  className="logo-img"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 0.9, scale: 1 }}
-                  transition={{ delay: 1, duration: 1 }}
-                />
+          <div className="phone-wrapper">
+            <motion.div
+              className="phone-mockup"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="notch"></div>
+              <div className="app-screen">
+                <div className="brand-center">
+                  <motion.img
+                    src={regrovLogo}
+                    alt="Regrov Logo"
+                    className="logo-img"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 0.9, scale: 1 }}
+                    transition={{ delay: 1, duration: 1 }}
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="floating-card c1">
-              <div className="icon-box">
-                <Sprout size={20} />
+              <div className="floating-card c1">
+                <div className="icon-box">
+                  <Sprout size={20} />
+                </div>
+                <div className="text-box">
+                  <div className="line l1"></div>
+                  <div className="line l2"></div>
+                </div>
               </div>
-              <div className="text-box">
-                <div className="line l1"></div>
-                <div className="line l2"></div>
+              <div className="floating-card c2">
+                <div className="icon-box">
+                  <TrendingUp size={20} />
+                </div>
+                <div className="text-box">
+                  <span>Market Rate</span>
+                  <strong>+15%</strong>
+                </div>
               </div>
-            </div>
-            <div className="floating-card c2">
-              <div className="icon-box">
-                <TrendingUp size={20} />
+              <div className="floating-card c3">
+                <div className="user-face-icon">
+                  <User size={18} />
+                </div>
+                <span>"Sold in 2hrs!"</span>
               </div>
-              <div className="text-box">
-                <span>Market Rate</span>
-                <strong>+15%</strong>
-              </div>
-            </div>
-            <div className="floating-card c3">
-              <div className="user-face-icon">
-                <User size={18} />
-              </div>
-              <span>"Sold in 2hrs!"</span>
-            </div>
-            <div className="glow-effect"></div>
-          </motion.div>
+              <div className="glow-effect"></div>
+            </motion.div>
+          </div>
         </div>
       </div>
 
@@ -182,14 +184,95 @@ const Hero = () => {
         .badge-capsule {
            display: inline-flex;
            align-items: center;
-           gap: 8px;
-           padding: 8px 16px;
-           background: rgba(255,255,255,0.1);
+           gap: 10px;
+           padding: 12px 24px;
+           background: linear-gradient(135deg, rgba(26, 77, 46, 0.25) 0%, rgba(76, 175, 80, 0.15) 100%);
+           backdrop-filter: blur(10px);
+           -webkit-backdrop-filter: blur(10px);
            border-radius: 50px;
-           color: var(--color-accent);
-           font-size: 0.85rem;
-           font-weight: 500;
-           border: 1px solid rgba(255,255,255,0.1);
+           color: #a8e6a3;
+           font-size: 0.9rem;
+           font-weight: 600;
+           letter-spacing: 0.3px;
+           border: 1.5px solid transparent;
+           background-clip: padding-box;
+           position: relative;
+           overflow: hidden;
+           box-shadow: 
+             0 4px 15px rgba(76, 175, 80, 0.1),
+             inset 0 1px 0 rgba(255, 255, 255, 0.1);
+           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .badge-capsule::before {
+           content: '';
+           position: absolute;
+           inset: 0;
+           border-radius: 50px;
+           padding: 1.5px;
+           background: linear-gradient(135deg, 
+             rgba(168, 230, 163, 0.6) 0%, 
+             rgba(76, 175, 80, 0.4) 25%,
+             rgba(26, 77, 46, 0.3) 50%,
+             rgba(76, 175, 80, 0.4) 75%,
+             rgba(168, 230, 163, 0.6) 100%);
+           -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+           -webkit-mask-composite: xor;
+           mask-composite: exclude;
+           animation: borderRotate 3s linear infinite;
+           opacity: 0.8;
+        }
+
+        .badge-capsule::after {
+           content: '';
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           width: 100%;
+           height: 100%;
+           background: radial-gradient(circle, rgba(168, 230, 163, 0.15) 0%, transparent 70%);
+           border-radius: 50px;
+           opacity: 0;
+           transition: opacity 0.4s ease;
+        }
+
+        .badge-capsule:hover {
+           transform: translateY(-2px);
+           box-shadow: 
+             0 8px 25px rgba(76, 175, 80, 0.25),
+             inset 0 1px 0 rgba(255, 255, 255, 0.2);
+           background: linear-gradient(135deg, rgba(26, 77, 46, 0.35) 0%, rgba(76, 175, 80, 0.25) 100%);
+        }
+
+        .badge-capsule:hover::after {
+           opacity: 1;
+        }
+
+        .badge-capsule svg {
+           filter: drop-shadow(0 0 4px rgba(168, 230, 163, 0.4));
+           animation: globeSpin 20s linear infinite;
+        }
+
+        @keyframes borderRotate {
+           0% {
+             background-position: 0% 50%;
+           }
+           50% {
+             background-position: 100% 50%;
+           }
+           100% {
+             background-position: 0% 50%;
+           }
+        }
+
+        @keyframes globeSpin {
+           0% {
+             transform: rotate(0deg);
+           }
+           100% {
+             transform: rotate(360deg);
+           }
         }
 
         .hero-content p {
@@ -235,6 +318,14 @@ const Hero = () => {
         }
 
         /* Phone Styles */
+        .phone-wrapper {
+            transform: rotate(-12deg) scale(0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%; 
+            height: 100%;
+        }
         .phone-mockup {
             width: 320px;
             height: 650px;
@@ -323,7 +414,7 @@ const Hero = () => {
         }
 
         .brand-center {
-          width: 130px;
+          width: 100px;
           display: flex;
           align-items: center;
           justify-content: center;

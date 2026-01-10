@@ -28,7 +28,7 @@ const Ask = () => {
                         <button className="contact-btn">
                             <Mail size={20} /> Contact Founder
                         </button>
-                        <p className="vision-text">"To become the world’s most trusted digital ecosystem for farmers."</p>
+                        <p className="vision-text">&quot;To become the world’s most trusted digital ecosystem for farmers.&quot;</p>
                     </motion.div>
                 </div>
             </div>

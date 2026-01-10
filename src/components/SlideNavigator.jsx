@@ -1,28 +1,28 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 import { motion } from 'framer-motion';
 
 const SlideNavigator = ({ activeIndex, count, onSelect }) => {
-    return (
-        <div className="slide-navigator">
-            <div className="nav-dots">
-                {Array.from({ length: count }).map((_, i) => (
-                    <button
-                        key={i}
-                        className={`nav-dot ${i === activeIndex ? 'active' : ''}`}
-                        onClick={() => onSelect(i)}
-                        aria-label={`Go to slide ${i + 1}`}
-                    >
-                        {i === activeIndex && (
-                            <motion.div
-                                layoutId="active-dot"
-                                className="active-indicator"
-                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                            />
-                        )}
-                    </button>
-                ))}
-            </div>
-            <style>{`
+  return (
+    <div className="slide-navigator">
+      <div className="nav-dots">
+        {Array.from({ length: count }).map((_, i) => (
+          <button
+            key={i}
+            className={`nav-dot ${i === activeIndex ? 'active' : ''}`}
+            onClick={() => onSelect(i)}
+            aria-label={`Go to slide ${i + 1}`}
+          >
+            {i === activeIndex && (
+              <motion.div
+                layoutId="active-dot"
+                className="active-indicator"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+            )}
+          </button>
+        ))}
+      </div>
+      <style>{`
         .slide-navigator {
           position: fixed;
           right: 30px;
@@ -70,8 +70,8 @@ const SlideNavigator = ({ activeIndex, count, onSelect }) => {
           background: transparent;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default SlideNavigator;

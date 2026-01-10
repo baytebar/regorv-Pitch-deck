@@ -191,8 +191,8 @@ const Solution = () => {
                 }
 
                 .phone-mockup {
-                    width: 320px;
-                    height: 650px;
+                    width: 280px;
+                    height: 550px;
                     background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
                     border-radius: 45px;
                     padding: 12px;
@@ -203,6 +203,8 @@ const Solution = () => {
                         inset 0 1px 2px rgba(255,255,255,0.1);
                     position: relative;
                     overflow: visible;
+                    transform: scale(0.1);
+                    transform-origin: center;
                 }
 
                 .phone-mockup::before {

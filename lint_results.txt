@@ -1,0 +1,38 @@
+
+> regrov-pitch-deck@0.0.0 lint
+> eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0
+
+
+C:\Users\jacob\Downloads\regorv-Pitch-deck-main\regorv-Pitch-deck-main\src\App.jsx
+   1:20  error  'useEffect' is defined but never used  no-unused-vars
+  60:37  error  'index' is defined but never used      no-unused-vars
+
+C:\Users\jacob\Downloads\regorv-Pitch-deck-main\regorv-Pitch-deck-main\src\components\Ask.jsx
+  31:52   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  31:118  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\jacob\Downloads\regorv-Pitch-deck-main\regorv-Pitch-deck-main\src\components\Business.jsx
+   1:41  error  'ArrowRight' is defined but never used                           no-unused-vars
+  77:54  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  77:90  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\jacob\Downloads\regorv-Pitch-deck-main\regorv-Pitch-deck-main\src\components\Footer.jsx
+  3:2  error  Parsing error: Unexpected token <<
+
+C:\Users\jacob\Downloads\regorv-Pitch-deck-main\regorv-Pitch-deck-main\src\components\Hero.jsx
+  3:2  error  Parsing error: Unexpected token <<
+
+C:\Users\jacob\Downloads\regorv-Pitch-deck-main\regorv-Pitch-deck-main\src\components\Navigation.jsx
+  3:2  error  Parsing error: Unexpected token <<
+
+C:\Users\jacob\Downloads\regorv-Pitch-deck-main\regorv-Pitch-deck-main\src\components\Roadmap.jsx
+  1:26  error  'Globe' is defined but never used  no-unused-vars
+
+C:\Users\jacob\Downloads\regorv-Pitch-deck-main\regorv-Pitch-deck-main\src\components\SlideNavigator.jsx
+  1:8   error  'React' is defined but never used             no-unused-vars
+  4:27  error  'activeIndex' is missing in props validation  react/prop-types
+  4:40  error  'count' is missing in props validation        react/prop-types
+  4:47  error  'onSelect' is missing in props validation     react/prop-types
+
+✖ 15 problems (15 errors, 0 warnings)
+
