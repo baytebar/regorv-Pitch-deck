@@ -37,7 +37,7 @@ const Team = () => {
                     >
                         <span className="tag">Our Team</span>
                         <h2>Leadership & Visionaries</h2>
-                        
+
                         <div className="carousel-container">
                             <div className="carousel-wrapper">
                                 <div className="team-group">
@@ -52,8 +52,8 @@ const Team = () => {
                                         >
                                             <div className="avatar-lg">
                                                 {member.image ? (
-                                                    <img 
-                                                        src={member.image} 
+                                                    <img
+                                                        src={member.image}
                                                         alt={member.name}
                                                         onError={(e) => {
                                                             const img = e.target;
@@ -86,8 +86,8 @@ const Team = () => {
                                         >
                                             <div className="avatar-lg">
                                                 {member.image ? (
-                                                    <img 
-                                                        src={member.image} 
+                                                    <img
+                                                        src={member.image}
                                                         alt={member.name}
                                                         onError={(e) => {
                                                             const img = e.target;
@@ -116,13 +116,15 @@ const Team = () => {
 
             <style>{`
                 .team-slide {
-                    height: 100vh;
+                    min-height: 100vh;
+                    height: auto;
                     width: 100%;
                     background: #0B1E14;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     position: relative;
+                    padding: 4rem 0;
                 }
 
                 .content-wrapper {
@@ -148,6 +150,13 @@ const Team = () => {
                     font-size: 3rem;
                     text-align: center;
                     margin-bottom: 3rem;
+                }
+
+                @media (max-width: 768px) {
+                    .team-block h2 {
+                        font-size: 2rem;
+                        padding: 0 1rem;
+                    }
                 }
 
                 .carousel-container {

@@ -77,12 +77,14 @@ const Roadmap = () => {
 
          <style>{`
         .roadmap-slide {
-           height: 100vh;
+           min-height: 100vh;
+           height: auto;
            width: 100%;
            background: #0D2818;
            display: flex;
            align-items: center;
            justify-content: center;
+           padding: 4rem 0;
         }
 
         .center-content {

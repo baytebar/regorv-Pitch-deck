@@ -89,7 +89,8 @@ const Business = () => {
 
             <style>{`
         .business-slide {
-           height: 100vh;
+           min-height: 100vh;
+           height: auto;
            width: 100%;
            background: #102A1E;
            display: flex;
@@ -101,6 +102,7 @@ const Business = () => {
            display: grid;
            grid-template-columns: 1fr;
            gap: 4rem;
+           padding: 4rem 0;
            align-items: center;
            justify-items: center;
            width: 100%;

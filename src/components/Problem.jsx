@@ -70,7 +70,8 @@ const Problem = () => {
 
       <style>{`
         .problem-slide {
-          height: 100vh;
+          min-height: 100vh;
+          height: auto;
           width: 100%;
           background: #0A0F0D; /* Almost black */
           display: flex;
@@ -83,7 +84,8 @@ const Problem = () => {
           display: grid;
           grid-template-columns: 1fr;
           gap: 4rem;
-          height: 100%;
+          min-height: 100%;
+          padding: 4rem 0;
           align-items: center;
           justify-items: center;
           width: 100%;
@@ -119,6 +121,12 @@ const Problem = () => {
           color: white;
           margin-bottom: 1.5rem;
           line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+          .text-side h2 {
+             font-size: 2.5rem;
+          }
         }
 
         .highlight-red {
@@ -157,6 +165,12 @@ const Problem = () => {
           grid-template-columns: 1fr 1fr;
           gap: 1.5rem;
           justify-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .cards-side {
+               grid-template-columns: 1fr;
+            }
         }
 
         .problem-card {

@@ -153,7 +153,8 @@ const Solution = () => {
 
             <style>{`
                 .solution-slide {
-                    height: 100vh;
+                    min-height: 100vh;
+                    height: auto;
                     width: 100%;
                     background: radial-gradient(circle at top right, #163B24 0%, #0D2818 100%);
                     display: flex;
@@ -166,7 +167,8 @@ const Solution = () => {
                     display: grid;
                     grid-template-columns: 1fr;
                     gap: 3rem;
-                    height: 100%;
+                    min-height: 100%;
+                    padding: 4rem 0;
                     align-items: center;
                     justify-items: center;
                     width: 100%;
