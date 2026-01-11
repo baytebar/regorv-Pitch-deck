@@ -114,7 +114,8 @@ const Hero = () => {
 
       <style>{`
         .hero-slide {
-          height: 100vh;
+          min-height: 100vh;
+          height: auto;
           width: 100%;
           display: flex;
           align-items: center;
@@ -535,6 +536,11 @@ const Hero = () => {
         .phone-mockup {
              transform: scale(0.7);
          }
+
+         .hero-stat-row {
+           gap: 1.5rem !important;
+           padding-top: 1.5rem !important;
+        }
       }
       
       // upto 375px
@@ -542,6 +548,8 @@ const Hero = () => {
           .phone-mockup {
              transform: scale(0.65);
          }
+
+
       }
       
       // upto 320px

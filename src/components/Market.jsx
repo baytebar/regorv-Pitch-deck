@@ -2,76 +2,77 @@ import { Globe, TrendingUp, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Market = () => {
-  return (
-    <section className="market-section">
-      <div className="container h-full">
-        <div className="market-content">
-          <motion.div
-            className="market-header"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <span className="tag">The Opportunity</span>
-            <h2>A massive, untapped ecosystem.</h2>
-          </motion.div>
+   return (
+      <section className="market-section">
+         <div className="container h-full">
+            <div className="market-content">
+               <motion.div
+                  className="market-header"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+               >
+                  <span className="tag">The Opportunity</span>
+                  <h2>A massive, untapped ecosystem.</h2>
+               </motion.div>
 
-          <div className="stats-grid">
-            <motion.div
-              className="stat-card"
-              initial={{ scale: 0.9, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <Globe size={40} className="stat-icon" />
-              <div className="stat-label">Total Addressable Market</div>
-              <div className="stat-value">$12 Trillion</div>
-              <div className="stat-desc">Global Agriculture Output</div>
-            </motion.div>
+               <div className="stats-grid">
+                  <motion.div
+                     className="stat-card"
+                     initial={{ scale: 0.9, opacity: 0 }}
+                     whileInView={{ scale: 1, opacity: 1 }}
+                     viewport={{ once: true }}
+                     transition={{ delay: 0.2 }}
+                  >
+                     <Globe size={40} className="stat-icon" />
+                     <div className="stat-label">Total Addressable Market</div>
+                     <div className="stat-value">$12 Trillion</div>
+                     <div className="stat-desc">Global Agriculture Output</div>
+                  </motion.div>
 
-            <motion.div
-              className="stat-card featured"
-              initial={{ scale: 0.9, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              <Users size={48} className="stat-icon" />
-              <div className="stat-label">Serviceable Market</div>
-              <div className="stat-value highlight">570 Million</div>
-              <div className="stat-desc">Farms family-owned globally.</div>
-            </motion.div>
+                  <motion.div
+                     className="stat-card featured"
+                     initial={{ scale: 0.9, opacity: 0 }}
+                     whileInView={{ scale: 1, opacity: 1 }}
+                     viewport={{ once: true }}
+                     transition={{ delay: 0.4 }}
+                  >
+                     <Users size={48} className="stat-icon" />
+                     <div className="stat-label">Serviceable Market</div>
+                     <div className="stat-value highlight">570 Million</div>
+                     <div className="stat-desc">Farms family-owned globally.</div>
+                  </motion.div>
 
-            <motion.div
-              className="stat-card"
-              initial={{ scale: 0.9, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-            >
-              <TrendingUp size={40} className="stat-icon" />
-              <div className="stat-label">Target Market (India)</div>
-              <div className="stat-value">$300 Billion</div>
-              <div className="stat-desc">Immediate Agri-Tech opportunity.</div>
-            </motion.div>
-          </div>
+                  <motion.div
+                     className="stat-card"
+                     initial={{ scale: 0.9, opacity: 0 }}
+                     whileInView={{ scale: 1, opacity: 1 }}
+                     viewport={{ once: true }}
+                     transition={{ delay: 0.6 }}
+                  >
+                     <TrendingUp size={40} className="stat-icon" />
+                     <div className="stat-label">Target Market (India)</div>
+                     <div className="stat-value">$300 Billion</div>
+                     <div className="stat-desc">Immediate Agri-Tech opportunity.</div>
+                  </motion.div>
+               </div>
 
-          <motion.div
-            className="market-footer"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.8 }}
-          >
-            <p>Market growing at <strong>12% CAGR</strong> due to smartphone adoption.</p>
-          </motion.div>
-        </div>
-      </div>
+               <motion.div
+                  className="market-footer"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.8 }}
+               >
+                  <p>Market growing at <strong>12% CAGR</strong> due to smartphone adoption.</p>
+               </motion.div>
+            </div>
+         </div>
 
-      <style>{`
+         <style>{`
         .market-section {
-           height: 100vh;
+           min-height: 100vh;
+           height: auto;
            width: 100%;
            background: radial-gradient(circle at center, #1E4D36 0%, #0D2818 100%);
            display: flex;
@@ -83,6 +84,7 @@ const Market = () => {
         .market-content {
            display: flex;
            flex-direction: column;
+           padding: 4rem 0;
            align-items: center;
            width: 100%;
            max-width: 1200px;
@@ -207,8 +209,8 @@ const Market = () => {
            }
         }
       `}</style>
-    </section>
-  );
+      </section>
+   );
 };
 
 export default Market;
