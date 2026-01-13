@@ -61,8 +61,8 @@ const Roadmap = () => {
                 >
                   {/* Mobile Connector */}
                   <div className={`absolute top-[60px] left-1/2 -translate-x-1/2 w-0.5 -bottom-8 z-0 lg:hidden ${
-                    p.status === 'active' ? 'bg-(--color-accent)' : 'bg-[#2D6A4F]'
-                  }`}></div>
+                      p.status === 'active' ? 'bg-(--color-accent)' : 'bg-[#2D6A4F]'
+                    }`}></div>
                   <div className={`w-[60px] h-[60px] rounded-full flex items-center justify-center z-10 transition-all duration-300 ${
                     p.status === 'active' 
                       ? 'bg-(--color-accent) border-2 border-(--color-accent) text-[#0D2818] shadow-[0_0_20px_rgba(212,238,38,0.4)]' 

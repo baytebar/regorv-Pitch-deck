@@ -27,13 +27,17 @@ const Navigation = () => {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-(--color-bg)/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 md:px-8 py-4 md:py-6 flex items-center justify-between">
           <div className="flex items-center">
             <button
               onClick={() => scrollToSection('hero')}
               className="hover:opacity-80 transition-opacity"
             >
-              <img src="/images/logo.svg" alt="REGROV" className="h-6 md:h-8" />
+              <img 
+                src="/images/logo.svg" 
+                alt="REGROV" 
+                className="nav-logo w-auto md:h-8 md:max-w-none" 
+              />
             </button>
           </div>
           
@@ -72,7 +76,7 @@ const Navigation = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-(--color-bg)/95 backdrop-blur-md z-40 md:hidden transition-all duration-300 ${
+        className={`fixed inset-0 bg-(--color-bg)/95 backdrop-blur-md z-60 md:hidden transition-all duration-300 ${
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
@@ -83,7 +87,31 @@ const Navigation = () => {
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex flex-col h-full pt-20 px-6">
+          {/* Logo and Close Button Header */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-white/10">
+            <button
+              onClick={() => {
+                scrollToSection('hero');
+                setIsMobileMenuOpen(false);
+              }}
+              className="hover:opacity-80 transition-opacity"
+            >
+              <img 
+                src="/images/logo.svg" 
+                alt="REGROV" 
+                className="nav-logo w-auto" 
+              />
+            </button>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-white hover:text-(--color-accent) transition-colors p-2"
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
+          
+          <div className="flex flex-col h-full pt-4 px-6">
             <button
               onClick={() => scrollToSection('solution')}
               className="text-white hover:text-(--color-accent) transition-colors text-lg py-4 border-b border-white/10 text-left"
