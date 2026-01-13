@@ -2,285 +2,112 @@ import { DollarSign, Megaphone, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Business = () => {
-    return (
-        <div className="business-slide">
-            <div className="container h-full">
-                <div className="two-col-grid">
-                    {/* Left: Revenue Model */}
-                    <div className="revenue-section">
-                        <span className="tag">Monetization</span>
-                        <h2>How We Make Money</h2>
+  return (
+    <div className="snap-section min-h-screen w-full flex items-center justify-center bg-[#102A1E]">
+      <div className="container h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 py-16 items-center justify-items-center w-full max-w-[1200px] mx-auto px-4 md:px-8">
+          {/* Left: Revenue Model */}
+          <div className="text-center flex flex-col items-center w-full max-w-[600px]">
+            <span className="text-(--color-accent) uppercase tracking-[2px] text-xs mb-4 block">
+              Monetization
+            </span>
+            <h2 className="text-[2.5rem] md:text-[3rem] text-white mb-12">
+              How We Make Money
+            </h2>
 
-                        <div className="revenue-list">
-                            <motion.div
-                                className="rev-item primary"
-                                initial={{ x: -20, opacity: 0 }}
-                                whileInView={{ x: 0, opacity: 1 }}
-                                viewport={{ once: true }}
-                            >
-                                <div className="icon-box"><Megaphone /></div>
-                                <div>
-                                    <h3>Ads Platform</h3>
-                                    <p>Hyper-local ads for fertilizers, tractors, & tools.</p>
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                className="rev-item"
-                                initial={{ x: -20, opacity: 0 }}
-                                whileInView={{ x: 0, opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.1 }}
-                            >
-                                <div className="icon-box"><DollarSign /></div>
-                                <div>
-                                    <h3>Transaction Fees</h3>
-                                    <p>Commission on marketplace sales & hiring.</p>
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                className="rev-item"
-                                initial={{ x: -20, opacity: 0 }}
-                                whileInView={{ x: 0, opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.2 }}
-                            >
-                                <div className="icon-box"><Target /></div>
-                                <div>
-                                    <h3>Subscription</h3>
-                                    <p>Premium advisory & advanced analytics.</p>
-                                </div>
-                            </motion.div>
-                        </div>
-                    </div>
-
-                    {/* Right: GTM Strategy */}
-                    <motion.div
-                        className="gtm-section"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <h3>Go-To-Market Strategy</h3>
-                        <div className="gtm-timeline">
-                            <div className="gtm-step">
-                                <span className="step-count">01</span>
-                                <h4>Grassroots</h4>
-                                <p>Partner with 500+ FPOs (Farmer Organizations).</p>
-                            </div>
-                            <div className="line"></div>
-                            <div className="gtm-step">
-                                <span className="step-count">02</span>
-                                <h4>Digital Viral</h4>
-                                <p>Referral program: &quot;Invite a farmer, get free soil test&quot;.</p>
-                            </div>
-                            <div className="line"></div>
-                            <div className="gtm-step">
-                                <span className="step-count">03</span>
-                                <h4>Govt Collab</h4>
-                                <p>Integrate with state agriculture databases.</p>
-                            </div>
-                        </div>
-                    </motion.div>
+            <div className="flex flex-col gap-6 w-full">
+              <motion.div
+                className="bg-white/5 p-6 rounded-2xl flex items-center gap-6 border border-(--color-accent) bg-gradient-to-r from-[rgba(212,238,38,0.1)] to-[rgba(255,255,255,0.05)] transition-all duration-200 hover:translate-x-2.5 hover:bg-white/8"
+                initial={{ x: -20, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-[50px] h-[50px] bg-black/30 rounded-xl flex items-center justify-center text-(--color-accent) flex-shrink-0">
+                  <Megaphone size={24} />
                 </div>
+                <div>
+                  <h3 className="text-white text-xl mb-1">Ads Platform</h3>
+                  <p className="text-[#A3BCA9] text-sm">Hyper-local ads for fertilizers, tractors, & tools.</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="bg-white/5 p-6 rounded-2xl flex items-center gap-6 border border-white/5 transition-all duration-200 hover:translate-x-2.5 hover:bg-white/8"
+                initial={{ x: -20, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
+                <div className="w-[50px] h-[50px] bg-black/30 rounded-xl flex items-center justify-center text-(--color-accent) flex-shrink-0">
+                  <DollarSign size={24} />
+                </div>
+                <div>
+                  <h3 className="text-white text-xl mb-1">Transaction Fees</h3>
+                  <p className="text-[#A3BCA9] text-sm">Commission on marketplace sales & hiring.</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="bg-white/5 p-6 rounded-2xl flex items-center gap-6 border border-white/5 transition-all duration-200 hover:translate-x-2.5 hover:bg-white/8"
+                initial={{ x: -20, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
+                <div className="w-[50px] h-[50px] bg-black/30 rounded-xl flex items-center justify-center text-(--color-accent) flex-shrink-0">
+                  <Target size={24} />
+                </div>
+                <div>
+                  <h3 className="text-white text-xl mb-1">Subscription</h3>
+                  <p className="text-[#A3BCA9] text-sm">Premium advisory & advanced analytics.</p>
+                </div>
+              </motion.div>
             </div>
+          </div>
 
-            <style>{`
-        .business-slide {
-           min-height: 100vh;
-           height: auto;
-           width: 100%;
-           background: #102A1E;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-        }
+          {/* Right: GTM Strategy */}
+          <motion.div
+            className="bg-[#0A1F12] p-8 md:p-12 rounded-[32px] border border-white/5 w-full max-w-[600px]"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-white text-[1.8rem] mb-10 text-center">
+              Go-To-Market Strategy
+            </h3>
+            <div className="flex flex-col gap-0 relative">
+              {/* Step 1 */}
+              <div className="flex flex-col gap-2 pl-8 pb-8 relative">
+                <div className="absolute left-0 top-0 w-3 h-3 rounded-full bg-(--color-accent) shadow-[0_0_0_4px_rgba(212,238,38,0.2)]"></div>
+                <div className="absolute left-[5px] top-3 bottom-[-2rem] w-0.5 bg-white/10"></div>
+                <div className="font-serif text-2xl text-white/10 absolute right-0 top-0">01</div>
+                <h4 className="text-white text-xl">Grassroots</h4>
+                <p className="text-[#888] text-[0.95rem]">Partner with 500+ FPOs (Farmer Organizations).</p>
+              </div>
 
-        .two-col-grid {
-           display: grid;
-           grid-template-columns: 1fr;
-           gap: 4rem;
-           padding: 4rem 0;
-           align-items: center;
-           justify-items: center;
-           width: 100%;
-           max-width: 1200px;
-           margin: 0 auto;
-        }
+              {/* Step 2 */}
+              <div className="flex flex-col gap-2 pl-8 pb-8 relative">
+                <div className="absolute left-0 top-0 w-3 h-3 rounded-full bg-(--color-accent) shadow-[0_0_0_4px_rgba(212,238,38,0.2)]"></div>
+                <div className="absolute left-[5px] top-3 bottom-[-2rem] w-0.5 bg-white/10"></div>
+                <div className="font-serif text-2xl text-white/10 absolute right-0 top-0">02</div>
+                <h4 className="text-white text-xl">Digital Viral</h4>
+                <p className="text-[#888] text-[0.95rem]">Referral program: &quot;Invite a farmer, get free soil test&quot;.</p>
+              </div>
 
-        @media (min-width: 900px) {
-           .two-col-grid {
-              grid-template-columns: 1fr 1fr;
-              justify-items: center;
-           }
-        }
-
-        .tag {
-           color: var(--color-accent);
-           text-transform: uppercase;
-           letter-spacing: 2px;
-           font-size: 0.8rem;
-           margin-bottom: 1rem;
-           display: block;
-        }
-
-        .revenue-section {
-           text-align: center;
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           width: 100%;
-           max-width: 600px;
-        }
-
-        .revenue-section h2 {
-           font-size: 3rem;
-           color: white;
-           margin-bottom: 3rem;
-        }
-
-        .revenue-list {
-           display: flex;
-           flex-direction: column;
-           gap: 1.5rem;
-        }
-
-        .rev-item {
-           background: rgba(255,255,255,0.05);
-           padding: 1.5rem;
-           border-radius: 16px;
-           display: flex;
-           align-items: center;
-           gap: 1.5rem;
-           border: 1px solid rgba(255,255,255,0.05);
-           transition: transform 0.2s;
-        }
-
-        .rev-item:hover {
-           transform: translateX(10px);
-           background: rgba(255,255,255,0.08);
-        }
-
-        .rev-item.primary {
-           border-color: var(--color-accent);
-           background: linear-gradient(90deg, rgba(212, 238, 38, 0.1) 0%, rgba(255,255,255,0.05) 100%);
-        }
-
-        .icon-box {
-           width: 50px;
-           height: 50px;
-           background: rgba(0,0,0,0.3);
-           border-radius: 12px;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           color: var(--color-accent);
-        }
-
-        .rev-item h3 {
-           color: white;
-           font-size: 1.2rem;
-           margin-bottom: 0.25rem;
-        }
-
-        .rev-item p {
-           color: #A3BCA9;
-           font-size: 0.9rem;
-        }
-
-        .gtm-section {
-           background: #0A1F12;
-           padding: 3rem;
-           border-radius: 32px;
-           border: 1px solid rgba(255,255,255,0.05);
-           width: 100%;
-           max-width: 600px;
-        }
-
-        .gtm-section h3 {
-           color: white;
-           font-size: 1.8rem;
-           margin-bottom: 2.5rem;
-           text-align: center;
-        }
-
-        .gtm-timeline {
-           display: flex;
-           flex-direction: column;
-           gap: 0;
-           position: relative;
-        }
-
-        .gtm-step {
-           display: flex;
-           flex-direction: column;
-           gap: 0.5rem;
-           padding-left: 2rem;
-           position: relative;
-           padding-bottom: 2rem;
-        }
-
-        .gtm-step:last-child { padding-bottom: 0; }
-
-        .line {
-           position: absolute;
-           left: 15px; /* Adjust based on circle size */
-           top: 0;
-           bottom: 0;
-           width: 2px;
-           background: rgba(255,255,255,0.1);
-        }
-
-        /* Connecting lines logic is complex in CSS only, simplified approach: */
-        .gtm-step::before {
-           content: '';
-           position: absolute;
-           left: 0;
-           top: 0;
-           width: 12px;
-           height: 12px;
-           border-radius: 50%;
-           background: var(--color-accent);
-           box-shadow: 0 0 0 4px rgba(212, 238, 38, 0.2);
-        }
-        
-        .gtm-step::after {
-            content: '';
-            position: absolute;
-            left: 5px;
-            top: 12px;
-            bottom: -12px;
-            width: 2px;
-            background: rgba(255,255,255,0.1);
-        }
-
-        .gtm-step:last-child::after {
-            display: none;
-        }
-
-        .step-count {
-           font-family: var(--font-heading);
-           font-size: 2rem;
-           color: rgba(255,255,255,0.1);
-           position: absolute;
-           right: 0;
-           top: 0;
-        }
-
-        .gtm-step h4 {
-           color: white;
-           font-size: 1.2rem;
-        }
-
-        .gtm-step p {
-           color: #888;
-           font-size: 0.95rem;
-        }
-      `}</style>
+              {/* Step 3 */}
+              <div className="flex flex-col gap-2 pl-8 relative">
+                <div className="absolute left-0 top-0 w-3 h-3 rounded-full bg-(--color-accent) shadow-[0_0_0_4px_rgba(212,238,38,0.2)]"></div>
+                <div className="font-serif text-2xl text-white/10 absolute right-0 top-0">03</div>
+                <h4 className="text-white text-xl">Govt Collab</h4>
+                <p className="text-[#888] text-[0.95rem]">Integrate with state agriculture databases.</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Business;

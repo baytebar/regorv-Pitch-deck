@@ -1,216 +1,105 @@
-import { Globe, TrendingUp, Users } from 'lucide-react';
+import { Globe, TrendingUp, UserCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Market = () => {
-   return (
-      <section className="market-section">
-         <div className="container h-full">
-            <div className="market-content">
-               <motion.div
-                  className="market-header"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-               >
-                  <span className="tag">The Opportunity</span>
-                  <h2>A massive, untapped ecosystem.</h2>
-               </motion.div>
+  return (
+    <section className="snap-section min-h-screen w-full flex items-center justify-center bg-[radial-gradient(circle_at_center,#1E4D36_0%,#0D2818_100%)] text-white">
+      <div className="container h-full">
+        <div className="flex flex-col py-16 items-center w-full max-w-[1200px] mx-auto px-4 md:px-8">
+          {/* Header */}
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-(--color-accent) uppercase tracking-[2px] text-xs mb-2 block">
+              The Opportunity
+            </span>
+            <h2 className="text-[2.5rem] md:text-[3rem] text-white/90">
+              A massive, untapped ecosystem.
+            </h2>
+          </motion.div>
 
-               <div className="stats-grid">
-                  <motion.div
-                     className="stat-card"
-                     initial={{ scale: 0.9, opacity: 0 }}
-                     whileInView={{ scale: 1, opacity: 1 }}
-                     viewport={{ once: true }}
-                     transition={{ delay: 0.2 }}
-                  >
-                     <Globe size={40} className="stat-icon" />
-                     <div className="stat-label">Total Addressable Market</div>
-                     <div className="stat-value">$12 Trillion</div>
-                     <div className="stat-desc">Global Agriculture Output</div>
-                  </motion.div>
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mb-16">
+            {/* Card 1 - Total Addressable Market */}
+            <motion.div
+              className="bg-white/5 border border-white/10 rounded-[20px] p-8 md:p-12 text-center flex flex-col items-center justify-center transition-all duration-300 hover:bg-white/8 hover:-translate-y-1"
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <Globe size={40} className="text-(--color-accent-2) mb-6 opacity-80" />
+              <div className="uppercase tracking-wide text-xs mb-4 text-white/60">
+                Total Addressable Market
+              </div>
+              <div className="text-[2.5rem] md:text-[3rem] font-bold font-serif mb-2 text-white leading-none">
+                $12–15 Trillion
+              </div>
+              <div className="text-white/70 text-[0.95rem]">
+                Global agriculture market value (annual output & services)
+              </div>
+            </motion.div>
 
-                  <motion.div
-                     className="stat-card featured"
-                     initial={{ scale: 0.9, opacity: 0 }}
-                     whileInView={{ scale: 1, opacity: 1 }}
-                     viewport={{ once: true }}
-                     transition={{ delay: 0.4 }}
-                  >
-                     <Users size={48} className="stat-icon" />
-                     <div className="stat-label">Serviceable Market</div>
-                     <div className="stat-value highlight">570 Million</div>
-                     <div className="stat-desc">Farms family-owned globally.</div>
-                  </motion.div>
+            {/* Card 2 - Farmer Count (Featured - Larger) */}
+            <motion.div
+              className="bg-white/5 border border-white/10 rounded-[24px] p-10 md:p-14 text-center flex flex-col items-center justify-center transition-all duration-300 hover:scale-[1.05] hover:-translate-y-1 hover:bg-white/8"
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1.05, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+            >
+              <UserCheck size={48} className="text-(--color-accent-2) mb-6 opacity-80" />
+              <div className="uppercase tracking-wide text-xs mb-4 text-white/60">
+                Farmer Count
+              </div>
+              <div className="text-[2.5rem] md:text-[3.5rem] font-bold font-serif mb-2 leading-none">
+                <span className="text-(--color-accent)">90–150</span> <span className="text-white">Million</span>
+              </div>
+              <div className="text-white/80 text-[0.95rem] font-medium">
+                Active farmers in target markets.
+              </div>
+            </motion.div>
 
-                  <motion.div
-                     className="stat-card"
-                     initial={{ scale: 0.9, opacity: 0 }}
-                     whileInView={{ scale: 1, opacity: 1 }}
-                     viewport={{ once: true }}
-                     transition={{ delay: 0.6 }}
-                  >
-                     <TrendingUp size={40} className="stat-icon" />
-                     <div className="stat-label">Target Market (India)</div>
-                     <div className="stat-value">$300 Billion</div>
-                     <div className="stat-desc">Immediate Agri-Tech opportunity.</div>
-                  </motion.div>
-               </div>
+            {/* Card 3 - Target Market (India) */}
+            <motion.div
+              className="bg-white/5 border border-white/10 rounded-[20px] p-8 md:p-12 text-center flex flex-col items-center justify-center transition-all duration-300 hover:bg-white/8 hover:-translate-y-1"
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+            >
+              <TrendingUp size={40} className="text-(--color-accent-2) mb-6 opacity-80" />
+              <div className="uppercase tracking-wide text-xs mb-4 text-white/60">
+                Target Market (India)
+              </div>
+              <div className="text-[2.5rem] md:text-[3rem] font-bold font-serif mb-2 text-white leading-none">
+                $450 Billion
+              </div>
+              <div className="text-white/70 text-[0.95rem]">
+                Immediate Agri-Tech opportunity (2024–2025).
+              </div>
+            </motion.div>
+          </div>
 
-               <motion.div
-                  className="market-footer"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.8 }}
-               >
-                  <p>Market growing at <strong>12% CAGR</strong> due to smartphone adoption.</p>
-               </motion.div>
-            </div>
-         </div>
-
-         <style>{`
-        .market-section {
-           min-height: 100vh;
-           height: auto;
-           width: 100%;
-           background: radial-gradient(circle at center, #1E4D36 0%, #0D2818 100%);
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           color: white;
-        }
-
-        .market-content {
-           display: flex;
-           flex-direction: column;
-           padding: 4rem 0;
-           align-items: center;
-           width: 100%;
-           max-width: 1200px;
-        }
-
-        .market-header {
-           text-align: center;
-           margin-bottom: 4rem;
-        }
-
-        .tag {
-           color: var(--color-accent);
-           text-transform: uppercase;
-           letter-spacing: 2px;
-           font-size: 0.8rem;
-           margin-bottom: 0.5rem;
-           display: block;
-        }
-
-        .market-header h2 {
-           font-size: 3rem;
-           color: rgba(255,255,255,0.9);
-        }
-
-        .stats-grid {
-           display: grid;
-           grid-template-columns: repeat(3, 1fr);
-           gap: 2rem;
-           width: 100%;
-        }
-
-        .stat-card {
-           background: rgba(255,255,255,0.05); /* Slightly lighter background */
-           border: 1px solid rgba(255,255,255,0.1);
-           border-radius: 20px;
-           padding: 3rem 2rem;
-           text-align: center;
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           justify-content: center;
-           transition: transform 0.3s;
-        }
-        
-        .stat-card:hover {
-           background: rgba(255,255,255,0.08);
-           transform: translateY(-5px);
-        }
-
-        .stat-card.featured {
-           background: rgba(255,255,255,0.08); /* Even lighter for featured */
-           border-color: rgba(255,255,255,0.2);
-           transform: scale(1.05);
-           box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-        
-        .stat-card.featured:hover {
-            transform: scale(1.05) translateY(-5px);
-        }
-
-        .stat-icon {
-           color: var(--color-accent-2); /* Goldenrod for icons */
-           margin-bottom: 1.5rem;
-           opacity: 0.8;
-        }
-        
-        .featured .stat-icon {
-            color: var(--color-accent); /* Neon for featured icon */
-            opacity: 1;
-        }
-
-        .stat-label {
-           text-transform: uppercase;
-           letter-spacing: 1px;
-           font-size: 0.85rem;
-           margin-bottom: 1rem;
-           color: rgba(255,255,255,0.6); /* Brighter gray */
-        }
-
-        .stat-value {
-           font-size: 3rem;
-           font-weight: 700;
-           font-family: var(--font-heading);
-           margin-bottom: 0.5rem;
-           color: white;
-           line-height: 1;
-        }
-        
-        .stat-value.highlight {
-            color: var(--color-accent);
-        }
-
-        .stat-desc {
-           color: rgba(255,255,255,0.7); /* Brighter description */
-           font-size: 0.95rem;
-        }
-
-        .market-footer {
-           margin-top: 4rem;
-           background: rgba(255,255,255,0.05);
-           padding: 0.75rem 2rem;
-           border-radius: 50px;
-           color: rgba(255,255,255,0.8);
-        }
-        
-        .market-footer strong {
-            color: var(--color-accent);
-        }
-
-        @media (max-width: 900px) {
-           .stats-grid {
-              grid-template-columns: 1fr;
-              gap: 1.5rem;
-           }
-           
-           .stat-card.featured {
-              transform: scale(1);
-           }
-           
-           .stat-card.featured:hover {
-              transform: translateY(-5px);
-           }
-        }
-      `}</style>
-      </section>
-   );
+          {/* Footer */}
+          <motion.div
+            className="mt-16 bg-white/5 py-3 px-8 rounded-[50px] text-white/80"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8 }}
+          >
+            <p>
+              Market growing at <strong className="text-(--color-accent)">12% CAGR</strong> due to smartphone adoption.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Market;
