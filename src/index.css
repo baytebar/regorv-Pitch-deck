@@ -206,7 +206,7 @@ h6 {
     width: 100% !important;
     max-width: 100% !important;
     height: 100vh;
-    overflow-y: auto;
+    overflow-y: auto !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
@@ -215,6 +215,8 @@ h6 {
     position: relative;
     left: 0;
     right: 0;
+    will-change: scroll-position;
+    scroll-behavior: smooth;
   }
 }
 
