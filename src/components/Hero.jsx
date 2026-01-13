@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 const Hero = () => {
   return (
     <div className="snap-section overflow-visible min-h-screen w-full flex items-center justify-center bg-[radial-gradient(circle_at_70%_30%,#1a4d2e_0%,var(--color-bg)_60%)] relative">
-      <div className="h-full w-full flex items-center justify-center overflow-visible relative">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] h-full items-center justify-items-center gap-8 w-full max-w-[1200px] mx-auto overflow-visible relative">
+      <div className="h-full w-full flex items-center justify-center overflow-hidden md:overflow-visible relative">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] h-full items-center justify-items-center gap-8 w-full max-w-[1200px] mx-auto overflow-hidden md:overflow-visible relative">
           {/* Left Content */}
           <div className="hero-content text-center flex flex-col items-center mt-20 lg:mt-0">
             <motion.div
@@ -69,17 +69,17 @@ const Hero = () => {
           </div>
 
           {/* Right Visual - Phone Mockup */}
-          <div className="-rotate-12 scale-[0.55] min-[320px]:scale-[0.55] min-[375px]:scale-[0.6] min-[425px]:scale-[0.65] md:scale-[0.75] lg:scale-[0.85] xl:scale-[0.8] min-[1200px]:scale-[0.8] min-[1400px]:scale-[0.85] min-[1600px]:scale-95 flex justify-center items-center w-full h-full relative overflow-visible">
+          <div className="-rotate-12 scale-[0.55] min-[320px]:scale-[0.55] min-[375px]:scale-[0.6] min-[425px]:scale-[0.65] md:scale-[0.75] lg:scale-[0.85] xl:scale-[0.8] min-[1200px]:scale-[0.8] min-[1400px]:scale-[0.85] min-[1600px]:scale-95 flex justify-center items-center w-full h-full relative overflow-hidden md:overflow-visible">
             <motion.div
-              className="w-72 h-[585px] bg-linear-to-br from-[#1a1a1a] to-[#2d2d2d] rounded-[45px] p-3 shadow-[0_0_0_2px_#0a0a0a,0_0_0_6px_#3a3a3a,0_30px_60px_-15px_rgba(0,0,0,0.7),inset_0_1px_2px_rgba(255,255,255,0.1)] relative overflow-visible"
+              className="w-72 h-[585px] bg-linear-to-br from-[#1a1a1a] to-[#2d2d2d] rounded-[45px] p-3 shadow-[0_0_0_2px_#0a0a0a,0_0_0_6px_#3a3a3a,0_30px_60px_-15px_rgba(0,0,0,0.7),inset_0_1px_2px_rgba(255,255,255,0.1)] relative overflow-hidden md:overflow-visible"
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
               {/* Phone side buttons */}
-              <div className="absolute top-20 -right-[3px] w-[3px] h-[50px] bg-linear-to-b from-[#2a2a2a] to-[#1a1a1a] rounded-r-sm"></div>
-              <div className="absolute top-[150px] -left-[3px] w-[3px] h-20 bg-linear-to-b from-[#2a2a2a] to-[#1a1a1a] rounded-l-sm"></div>
+              <div className="hidden md:block absolute top-20 -right-[3px] w-[3px] h-[50px] bg-linear-to-b from-[#2a2a2a] to-[#1a1a1a] rounded-r-sm"></div>
+              <div className="hidden md:block absolute top-[150px] -left-[3px] w-[3px] h-20 bg-linear-to-b from-[#2a2a2a] to-[#1a1a1a] rounded-l-sm"></div>
 
               {/* Notch */}
               <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[140px] h-7 bg-[#0a0a0a] rounded-b-[18px] z-10 shadow-[inset_0_-2px_4px_rgba(0,0,0,0.3)]">
@@ -88,7 +88,7 @@ const Hero = () => {
               </div>
 
               {/* App Screen */}
-              <div className="h-full w-full bg-white flex items-center justify-center pt-9 rounded-[35px] overflow-visible relative">
+              <div className="h-full w-full bg-white flex items-center justify-center pt-9 rounded-[35px] overflow-hidden relative">
                 <div className="w-[100px] flex items-center justify-center z-10">
                   <motion.img
                     src="/images/regrov-icon.png"
@@ -102,7 +102,7 @@ const Hero = () => {
               </div>
 
               {/* Floating Card 1 - Top Left */}
-              <div className="absolute top-[15%] -left-[140px] w-[220px] bg-(--color-surface) rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] flex items-center gap-4 border border-white/10 animate-float z-50 text-white pointer-events-auto">
+              <div className="hidden lg:flex absolute top-[15%] -left-[140px] w-[220px] bg-(--color-surface) rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-4 border border-white/10 animate-float z-50 text-white pointer-events-auto">
                 <div className="w-11 h-11 bg-[rgba(10,31,18,0.6)] rounded-xl flex items-center justify-center text-[1.4rem] text-(--color-accent)">
                   <Sprout size={20} />
                 </div>
@@ -113,7 +113,7 @@ const Hero = () => {
               </div>
 
               {/* Floating Card 2 - Middle Right */}
-              <div className="absolute top-[45%] -right-[160px] w-[240px] bg-(--color-surface) rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] flex items-center gap-4 border border-white/10 animate-float-delayed z-50 text-white pointer-events-auto">
+              <div className="hidden lg:flex absolute top-[45%] -right-[160px] w-[240px] bg-(--color-surface) rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-4 border border-white/10 animate-float-delayed z-50 text-white pointer-events-auto">
                 <div className="w-11 h-11 bg-[rgba(10,31,18,0.6)] rounded-xl flex items-center justify-center text-[1.4rem] text-(--color-accent)">
                   <TrendingUp size={20} />
                 </div>
@@ -124,7 +124,7 @@ const Hero = () => {
               </div>
 
               {/* Floating Card 3 - Bottom Left */}
-              <div className="absolute bottom-[18%] -left-[100px] w-[200px] bg-(--color-surface) rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] flex items-center gap-4 border border-white/10 animate-float-slow z-50 text-white pointer-events-auto">
+              <div className="hidden lg:flex absolute bottom-[18%] -left-[100px] w-[200px] bg-(--color-surface) rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-4 border border-white/10 animate-float-slow z-50 text-white pointer-events-auto">
                 <div className="w-9 h-9 bg-[rgba(10,31,18,0.6)] rounded-full flex items-center justify-center text-(--color-accent) shrink-0">
                   <User size={18} />
                 </div>
@@ -132,7 +132,7 @@ const Hero = () => {
               </div>
 
               {/* Glow Effect */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-(--color-accent) blur-[140px] opacity-15 -z-10 rounded-full pointer-events-none"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-(--color-accent) blur-[140px] opacity-15 -z-10 rounded-full pointer-events-none"></div>
             </motion.div>
           </div>
         </div>
