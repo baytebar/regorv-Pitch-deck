@@ -135,7 +135,6 @@ html {
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
-    user-drag: none;
   }
   
   /* Allow text selection but prevent dragging */
@@ -357,6 +356,22 @@ h6 {
 button {
   cursor: pointer;
   font-family: var(--font-body);
+}
+
+/* Navigation Logo Sizing */
+.nav-logo {
+  height: 20px;
+  max-height: 20px;
+  max-width: 100px;
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .nav-logo {
+    height: 32px;
+    max-height: none;
+    max-width: none;
+  }
 }
 
 /* Animations */
