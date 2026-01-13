@@ -1,27 +1,16 @@
 import { motion } from 'framer-motion';
 
-// Import images
-import jacobImg from '../public/images/jacob.png';
-import thomasImg from '../public/images/thomas.jpeg';
-import karthikImg from '../public/images/karthik.jpg';
-import shijuImg from '../public/images/shiju.jpg';
-import surajImg from '../public/images/suraj.jpg';
-import jonoImg from '../public/images/jono.jpg';
-import alanImg from '../public/images/alan.jpg';
-import joyesImg from '../public/images/joyes.jpg';
-import christoImg from '../public/images/christo.jpg';
-
 const Team = () => {
   const teamMembers = [
-    { name: 'Jacob', role: 'Founder, CEO', image: jacobImg },
-    { name: 'Thomas', role: 'Co-founder, COO', image: thomasImg },
-    { name: 'Karthik', role: 'CFO', image: karthikImg },
-    { name: 'Shiju', role: 'CTO', image: shijuImg },
-    { name: 'Sooraj', role: 'Team Lead, IT', image: surajImg },
-    { name: 'Jono', role: 'CMO', image: jonoImg },
-    { name: 'Alan', role: 'Marketing Member', image: alanImg },
-    { name: 'Joyes', role: 'Human Resource', image: joyesImg },
-    { name: 'Christo', role: 'Financial Advisor', image: christoImg }
+    { name: 'Jacob', role: 'Founder, CEO', image: '/images/jacob.png' },
+    { name: 'Thomas', role: 'Co-founder, COO', image: '/images/thomas.jpeg' },
+    { name: 'Karthik', role: 'CFO', image: '/images/karthik.jpg' },
+    { name: 'Shiju', role: 'CTO', image: '/images/shiju.jpg' },
+    { name: 'Sooraj', role: 'Team Lead, IT', image: '/images/suraj.jpg' },
+    { name: 'Jono', role: 'CMO', image: '/images/jono.jpg' },
+    { name: 'Alan', role: 'Marketing Member', image: '/images/alan.jpg' },
+    { name: 'Joyes', role: 'Human Resource', image: '/images/joyes.jpg' },
+    { name: 'Christo', role: 'Financial Advisor', image: '/images/christo.jpg' }
   ];
 
   return (

@@ -53,18 +53,16 @@ const Roadmap = () => {
               <div key={i} className={`flex flex-col lg:flex-col items-center flex-1 relative pb-8 lg:pb-0 ${p.status === 'active' ? 'active' : ''}`}>
                 {/* Marker Container */}
                 <motion.div
-                  className="relative flex justify-center lg:justify-center justify-start w-full lg:w-full h-20 lg:h-20 pl-0 lg:pl-0"
+                  className="relative flex justify-center lg:justify-center w-full lg:w-full h-20 lg:h-20 pl-0 lg:pl-0"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.2 }}
                 >
                   {/* Mobile Connector */}
-                  {i !== phases.length - 1 && (
-                    <div className={`absolute top-[60px] left-[30px] w-0.5 bottom-[-2rem] z-0 lg:hidden ${
-                      p.status === 'active' ? 'bg-(--color-accent)' : 'bg-[#2D6A4F]'
-                    }`}></div>
-                  )}
+                  <div className={`absolute top-[60px] left-1/2 -translate-x-1/2 w-0.5 -bottom-8 z-0 lg:hidden ${
+                    p.status === 'active' ? 'bg-(--color-accent)' : 'bg-[#2D6A4F]'
+                  }`}></div>
                   <div className={`w-[60px] h-[60px] rounded-full flex items-center justify-center z-10 transition-all duration-300 ${
                     p.status === 'active' 
                       ? 'bg-(--color-accent) border-2 border-(--color-accent) text-[#0D2818] shadow-[0_0_20px_rgba(212,238,38,0.4)]' 
@@ -74,7 +72,7 @@ const Roadmap = () => {
                   </div>
                   {/* Desktop Connector Line */}
                   {i !== phases.length - 1 && (
-                    <div className={`absolute top-[30px] left-[60px] right-[-100%] h-0.5 z-0 hidden lg:block ${
+                    <div className={`absolute top-[30px] left-[60px] -right-full h-0.5 z-0 hidden lg:block ${
                       p.status === 'active' ? 'bg-(--color-accent)' : 'bg-[#2D6A4F]'
                     }`}></div>
                   )}

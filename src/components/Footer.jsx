@@ -1,6 +1,5 @@
 import { Mail, Instagram, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
-import logo from '../public/images/logo.svg';
 
 const Footer = () => {
   const scrollToSection = (sectionId) => {
@@ -32,7 +31,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <img src={logo} alt="Regrov" className="h-12 w-auto mb-4" />
+            <img src="/images/logo.svg" alt="Regrov" className="h-12 w-auto mb-4" />
             <p className="text-(--color-text-muted) text-sm italic leading-relaxed max-w-[300px]">
               &quot;To become the world&apos;s most trusted digital ecosystem for farmers.&quot;
             </p>

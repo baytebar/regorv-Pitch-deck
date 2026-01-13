@@ -49,15 +49,15 @@ const Solution = () => {
           {/* Left: Phone Mockup */}
           <div className="flex justify-center items-center h-full">
             <motion.div
-              className="w-[280px] h-[550px] bg-gradient-to-br from-[#1a1a1a] to-[#2d2d2d] rounded-[45px] p-3 shadow-[0_0_0_2px_#0a0a0a,0_0_0_6px_#3a3a3a,0_30px_60px_-15px_rgba(0,0,0,0.7),inset_0_1px_2px_rgba(255,255,255,0.1)] relative overflow-visible"
+              className="w-[280px] h-[550px] bg-linear-to-br from-[#1a1a1a] to-[#2d2d2d] rounded-[45px] p-3 shadow-[0_0_0_2px_#0a0a0a,0_0_0_6px_#3a3a3a,0_30px_60px_-15px_rgba(0,0,0,0.7),inset_0_1px_2px_rgba(255,255,255,0.1)] relative overflow-visible"
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
               {/* Phone side buttons */}
-              <div className="absolute top-20 -right-[3px] w-[3px] h-[50px] bg-gradient-to-b from-[#2a2a2a] to-[#1a1a1a] rounded-r-sm"></div>
-              <div className="absolute top-[150px] -left-[3px] w-[3px] h-20 bg-gradient-to-b from-[#2a2a2a] to-[#1a1a1a] rounded-l-sm"></div>
+              <div className="absolute top-20 -right-[3px] w-[3px] h-[50px] bg-linear-to-b from-[#2a2a2a] to-[#1a1a1a] rounded-r-sm"></div>
+              <div className="absolute top-[150px] -left-[3px] w-[3px] h-20 bg-linear-to-b from-[#2a2a2a] to-[#1a1a1a] rounded-l-sm"></div>
 
               {/* Notch */}
               <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[140px] h-7 bg-[#0a0a0a] rounded-b-[18px] z-10 shadow-[inset_0_-2px_4px_rgba(0,0,0,0.3)]">

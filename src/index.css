@@ -31,6 +31,16 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  html {
+    position: relative;
+  }
 }
 
 body {
@@ -56,15 +66,30 @@ h6 {
 
 /* Scroll Snap Utilities */
 .snap-container {
-  height: 100vh;
   width: 100vw;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  scroll-snap-type: none;
   scrollbar-width: none;
   /* Firefox */
   -ms-overflow-style: none;
   /* IE/Edge */
   position: relative;
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .snap-container {
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (min-width: 769px) {
+  .snap-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+  }
 }
 
 .snap-container::-webkit-scrollbar {
@@ -76,13 +101,26 @@ h6 {
   min-height: 100vh;
   height: auto;
   width: 100%;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
+}
+
+@media (min-width: 769px) {
+  .snap-section {
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 769px) {
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
 }
 
 .snap-section.overflow-visible {
@@ -90,10 +128,16 @@ h6 {
 }
 
 .snap-section.footer-section {
-  scroll-snap-align: end;
+  scroll-snap-align: none;
   min-height: auto;
   height: auto;
   align-items: flex-start;
+}
+
+@media (min-width: 769px) {
+  .snap-section.footer-section {
+    scroll-snap-align: end;
+  }
 }
 
 .container {
