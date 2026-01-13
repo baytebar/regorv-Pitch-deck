@@ -63,18 +63,15 @@ function App() {
         containerRef.current.style.transform = 'translateX(0)';
       }
       
-      // Find and fix any element wider than viewport
-      const allElements = document.querySelectorAll('*');
-      allElements.forEach((el) => {
+      // Find and fix any element wider than viewport - only check visible elements
+      // Skip expensive checks on every frame
+      const visibleElements = document.querySelectorAll('.snap-section, .container, nav, .snap-container');
+      visibleElements.forEach((el) => {
         const rect = el.getBoundingClientRect();
         if (rect.width > viewportWidth) {
           el.style.maxWidth = `${viewportWidth}px`;
           el.style.width = '100%';
           el.style.boxSizing = 'border-box';
-        }
-        if (rect.left < 0 || rect.right > viewportWidth) {
-          el.style.left = '0';
-          el.style.right = '0';
         }
       });
     };
@@ -94,7 +91,9 @@ function App() {
         const deltaX = Math.abs(touchX - touchStartX);
         const deltaY = Math.abs(touchY - touchStartY);
         
-        if (deltaX > deltaY && deltaX > 5) {
+        // Only prevent if horizontal movement is significantly greater than vertical
+        // Allow vertical scrolling to work normally
+        if (deltaX > deltaY * 2 && deltaX > 10) {
           e.preventDefault();
           e.stopPropagation();
           return false;
@@ -138,15 +137,25 @@ function App() {
       }
     };
     
-    // Monitor for DOM changes
+    // Monitor for DOM changes - debounced
+    let mutationTimeout;
     const observer = new MutationObserver(() => {
-      forceViewportWidth();
+      clearTimeout(mutationTimeout);
+      mutationTimeout = setTimeout(() => {
+        forceViewportWidth();
+      }, 100);
     });
     
-    // Continuous monitoring with requestAnimationFrame
+    // Continuous monitoring with requestAnimationFrame - reduced frequency
     let rafId;
+    let lastCheck = 0;
     const monitor = () => {
-      forceViewportWidth();
+      const now = Date.now();
+      // Only check every 200ms instead of every frame
+      if (now - lastCheck > 200) {
+        forceViewportWidth();
+        lastCheck = now;
+      }
       rafId = requestAnimationFrame(monitor);
     };
     
@@ -201,8 +210,15 @@ function App() {
     if (containerRef.current) {
       const scrollValues = containerRef.current.scrollTop;
       const height = window.innerHeight;
-      const index = Math.round(scrollValues / height);
-      setActiveSlide(index);
+      // Use a more lenient threshold - snap to section when scrolled 25% of viewport
+      // This makes navigation more responsive with less scrolling needed
+      const threshold = height * 0.25;
+      const index = Math.floor((scrollValues + threshold) / height);
+      const maxIndex = slides.length;
+      const clampedIndex = Math.max(0, Math.min(index, maxIndex - 1));
+      if (clampedIndex !== activeSlide) {
+        setActiveSlide(clampedIndex);
+      }
     }
   };
 
