@@ -28,6 +28,24 @@
   --border-radius: 16px;
 }
 
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  #root {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    position: relative;
+    left: 0 !important;
+    right: 0 !important;
+  }
+}
+
 
 html {
   scroll-behavior: smooth;
@@ -40,6 +58,106 @@ html {
 @media (max-width: 768px) {
   html {
     position: relative;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    touch-action: pan-y pinch-zoom;
+    overscroll-behavior-x: none;
+    transform: translateX(0) !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    box-sizing: border-box;
+  }
+  
+  body {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+  
+  html, body, #root {
+    overflow-x: hidden !important;
+    max-width: 100%;
+    touch-action: pan-y pinch-zoom;
+    overscroll-behavior-x: none;
+    transform: translateX(0) !important;
+    position: relative;
+    left: 0 !important;
+    right: 0 !important;
+  }
+  
+  body {
+    touch-action: pan-y pinch-zoom;
+    overscroll-behavior-x: none;
+    -webkit-overflow-scrolling: touch;
+    transform: translateX(0) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  img, video, iframe, canvas, svg {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Prevent horizontal overflow from positioned elements */
+  [class*="absolute"], [class*="fixed"] {
+    max-width: 100%;
+  }
+  
+  /* Prevent horizontal touch scrolling */
+  .snap-container {
+    touch-action: pan-y;
+    overscroll-behavior-x: none;
+    -webkit-overflow-scrolling: touch;
+    transform: translateX(0) !important;
+  }
+  
+  /* Prevent all horizontal gestures */
+  * {
+    touch-action: pan-y pinch-zoom;
+  }
+  
+  /* Prevent dragging on all elements */
+  * {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+  }
+  
+  /* Allow text selection but prevent dragging */
+  p, span, h1, h2, h3, h4, h5, h6, a, button {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+  }
+  
+  /* Lock horizontal position - prevent any horizontal translation */
+  body, html, #root {
+    position: relative;
+    left: 0 !important;
+    right: 0 !important;
+    transform: translateX(0) !important;
+  }
+  
+  .snap-container, .snap-section {
+    left: 0 !important;
+    right: 0 !important;
+    transform: translateX(0) !important;
   }
 }
 
@@ -51,6 +169,12 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
   /* Hide main window scroll, we handle it in App container */
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
 }
 
 h1,
@@ -66,8 +190,9 @@ h6 {
 
 /* Scroll Snap Utilities */
 .snap-container {
-  width: 100vw;
+  width: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   scroll-snap-type: none;
   scrollbar-width: none;
   /* Firefox */
@@ -79,9 +204,18 @@ h6 {
 
 @media (max-width: 768px) {
   .snap-container {
+    width: 100% !important;
+    max-width: 100% !important;
     height: 100vh;
     overflow-y: auto;
+    overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: auto;
+    position: relative;
+    left: 0;
+    right: 0;
   }
 }
 
@@ -101,6 +235,7 @@ h6 {
   min-height: 100vh;
   height: auto;
   width: 100%;
+  max-width: 100%;
   scroll-snap-align: none;
   scroll-snap-stop: normal;
   position: relative;
@@ -108,6 +243,32 @@ h6 {
   align-items: center;
   justify-content: center;
   overflow: visible;
+}
+
+@media (max-width: 768px) {
+  .snap-section {
+    overflow-x: hidden !important;
+    overflow-y: visible;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative;
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .snap-section * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Force all direct children to respect viewport */
+  .snap-section > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
 }
 
 @media (min-width: 769px) {
@@ -149,6 +310,30 @@ h6 {
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .container * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Ensure grid and flex containers don't overflow */
+  .container > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
 }
 
 .container.h-full {

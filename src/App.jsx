@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Navigation from './components/Navigation';
 import SlideNavigator from './components/SlideNavigator';
 import ScrollToTop from './components/ScrollToTop';
@@ -14,6 +14,178 @@ import Footer from './components/Footer';
 function App() {
   const [activeSlide, setActiveSlide] = useState(0);
   const containerRef = useRef(null);
+
+  // Aggressively prevent horizontal dragging and screen movement
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    if (!isMobile) return;
+    
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let mouseStartX = 0;
+    let mouseStartY = 0;
+    
+    // Force document width to match viewport
+    const forceViewportWidth = () => {
+      const viewportWidth = window.innerWidth;
+      const docWidth = document.documentElement.scrollWidth;
+      const bodyWidth = document.body.scrollWidth;
+      
+      // Force html and body to exact viewport width
+      document.documentElement.style.width = `${viewportWidth}px`;
+      document.documentElement.style.maxWidth = `${viewportWidth}px`;
+      document.body.style.width = `${viewportWidth}px`;
+      document.body.style.maxWidth = `${viewportWidth}px`;
+      
+      // Force root element
+      const root = document.getElementById('root');
+      if (root) {
+        root.style.width = `${viewportWidth}px`;
+        root.style.maxWidth = `${viewportWidth}px`;
+      }
+      
+      // Lock scroll position
+      if (window.scrollX !== 0) {
+        window.scrollTo(0, window.scrollY);
+      }
+      
+      // Lock all containers
+      if (containerRef.current) {
+        containerRef.current.scrollLeft = 0;
+        containerRef.current.style.width = `${viewportWidth}px`;
+        containerRef.current.style.maxWidth = `${viewportWidth}px`;
+      }
+      
+      // Prevent transforms
+      document.body.style.transform = 'translateX(0)';
+      document.documentElement.style.transform = 'translateX(0)';
+      if (containerRef.current) {
+        containerRef.current.style.transform = 'translateX(0)';
+      }
+      
+      // Find and fix any element wider than viewport
+      const allElements = document.querySelectorAll('*');
+      allElements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.width > viewportWidth) {
+          el.style.maxWidth = `${viewportWidth}px`;
+          el.style.width = '100%';
+          el.style.boxSizing = 'border-box';
+        }
+        if (rect.left < 0 || rect.right > viewportWidth) {
+          el.style.left = '0';
+          el.style.right = '0';
+        }
+      });
+    };
+    
+    // Touch handlers
+    const handleTouchStart = (e) => {
+      if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    };
+    
+    const handleTouchMove = (e) => {
+      if (e.touches.length === 1) {
+        const touchX = e.touches[0].clientX;
+        const touchY = e.touches[0].clientY;
+        const deltaX = Math.abs(touchX - touchStartX);
+        const deltaY = Math.abs(touchY - touchStartY);
+        
+        if (deltaX > deltaY && deltaX > 5) {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+      }
+    };
+    
+    // Mouse handlers
+    const handleMouseDown = (e) => {
+      mouseStartX = e.clientX;
+      mouseStartY = e.clientY;
+    };
+    
+    const handleMouseMove = (e) => {
+      if (e.buttons === 1) {
+        const deltaX = Math.abs(e.clientX - mouseStartX);
+        const deltaY = Math.abs(e.clientY - mouseStartY);
+        
+        if (deltaX > deltaY && deltaX > 5) {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+      }
+    };
+    
+    // Prevent horizontal scroll
+    const preventHorizontalScroll = (e) => {
+      if (e.deltaX !== 0 && Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    };
+    
+    // Prevent drag
+    const preventDrag = (e) => {
+      if (e.type === 'dragstart' || e.type === 'drag') {
+        e.preventDefault();
+        return false;
+      }
+    };
+    
+    // Monitor for DOM changes
+    const observer = new MutationObserver(() => {
+      forceViewportWidth();
+    });
+    
+    // Continuous monitoring with requestAnimationFrame
+    let rafId;
+    const monitor = () => {
+      forceViewportWidth();
+      rafId = requestAnimationFrame(monitor);
+    };
+    
+    // Add event listeners
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
+    document.addEventListener('touchmove', handleTouchMove, { passive: false });
+    document.addEventListener('mousedown', handleMouseDown, { passive: true });
+    document.addEventListener('mousemove', handleMouseMove, { passive: false });
+    document.addEventListener('dragstart', preventDrag, { passive: false });
+    document.addEventListener('drag', preventDrag, { passive: false });
+    window.addEventListener('wheel', preventHorizontalScroll, { passive: false });
+    window.addEventListener('scroll', forceViewportWidth, { passive: true });
+    window.addEventListener('resize', forceViewportWidth);
+    
+    // Start monitoring
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['style', 'class']
+    });
+    
+    rafId = requestAnimationFrame(monitor);
+    forceViewportWidth();
+    
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchmove', handleTouchMove);
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('dragstart', preventDrag);
+      document.removeEventListener('drag', preventDrag);
+      window.removeEventListener('wheel', preventHorizontalScroll);
+      window.removeEventListener('scroll', forceViewportWidth);
+      window.removeEventListener('resize', forceViewportWidth);
+      observer.disconnect();
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   const slides = [
     { id: 'hero', component: <Hero /> },
@@ -49,7 +221,19 @@ function App() {
   };
 
   return (
-    <div className="w-full h-full">
+    <div 
+      className="w-full h-full overflow-x-hidden" 
+      style={{ 
+        touchAction: 'pan-y', 
+        overscrollBehaviorX: 'none',
+        width: '100%',
+        maxWidth: '100%',
+        overflowX: 'hidden',
+        position: 'relative',
+        left: 0,
+        right: 0
+      }}
+    >
       <Navigation />
       <SlideNavigator
         activeIndex={activeSlide}
@@ -62,6 +246,16 @@ function App() {
         ref={containerRef}
         className="snap-container"
         onScroll={handleScroll}
+        style={{ 
+          touchAction: 'pan-y', 
+          overscrollBehaviorX: 'none',
+          width: '100%',
+          maxWidth: '100%',
+          overflowX: 'hidden',
+          position: 'relative',
+          left: 0,
+          right: 0
+        }}
       >
         {slides.map((slide) => (
           <section key={slide.id} id={slide.id} className="snap-section">
