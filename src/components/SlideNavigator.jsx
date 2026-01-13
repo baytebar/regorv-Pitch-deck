@@ -1,75 +1,25 @@
-/* eslint-disable react/prop-types */
-import { motion } from 'framer-motion';
-
 const SlideNavigator = ({ activeIndex, count, onSelect }) => {
   return (
-    <div className="slide-navigator">
-      <div className="nav-dots">
-        {Array.from({ length: count }).map((_, i) => (
+    <div className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 hidden lg:flex lg:flex-col lg:items-center lg:gap-4">
+      {/* Navigation Dots */}
+      <div className="flex flex-col gap-3">
+        {Array.from({ length: count }).map((_, index) => (
           <button
-            key={i}
-            className={`nav-dot ${i === activeIndex ? 'active' : ''}`}
-            onClick={() => onSelect(i)}
-            aria-label={`Go to slide ${i + 1}`}
+            key={index}
+            onClick={() => onSelect(index)}
+            className="relative"
+            aria-label={`Navigate to section ${index + 1}`}
           >
-            {i === activeIndex && (
-              <motion.div
-                layoutId="active-dot"
-                className="active-indicator"
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              />
-            )}
+            <div
+              className={`w-3 h-3 rounded-full transition-all ${
+                activeIndex === index
+                  ? 'bg-(--color-accent) ring-4 ring-(--color-accent)/30'
+                  : 'bg-(--color-surface)'
+              }`}
+            />
           </button>
         ))}
       </div>
-      <style>{`
-        .slide-navigator {
-          position: fixed;
-          right: 30px;
-          top: 50%;
-          transform: translateY(-50%);
-          z-index: 1000;
-          display: none;
-        }
-
-        @media (min-width: 1024px) {
-          .slide-navigator {
-            display: block;
-          }
-        }
-
-        .nav-dots {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-        }
-
-        .nav-dot {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.2);
-          border: none;
-          padding: 0;
-          position: relative;
-          transition: background 0.3s;
-        }
-
-        .nav-dot:hover {
-          background: rgba(255, 255, 255, 0.4);
-        }
-
-        .active-indicator {
-          position: absolute;
-          top: -2px;
-          left: -2px;
-          right: -2px;
-          bottom: -2px;
-          border: 2px solid var(--color-accent);
-          border-radius: 50%;
-          background: transparent;
-        }
-      `}</style>
     </div>
   );
 };
