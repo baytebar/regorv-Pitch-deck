@@ -236,7 +236,7 @@ function App() {
     if (containerRef.current) {
       containerRef.current.scrollTo({
         top: 0,
-        behavior: 'auto' // Instant scroll
+        behavior: 'smooth'
       });
       setActiveSlide(0);
     }
