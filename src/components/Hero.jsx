@@ -69,9 +69,9 @@ const Hero = () => {
           </div>
 
           {/* Right Visual - Phone Mockup */}
-          <div className="-rotate-12 scale-[0.55] min-[320px]:scale-[0.55] min-[375px]:scale-[0.6] min-[425px]:scale-[0.65] md:scale-[0.75] lg:scale-[0.85] xl:scale-[0.8] min-[1200px]:scale-[0.8] min-[1400px]:scale-[0.85] min-[1600px]:scale-95 flex justify-center items-center w-full h-full relative overflow-hidden md:overflow-visible">
+          <div className="-rotate-12 scale-[0.55] min-[320px]:scale-[0.55] min-[375px]:scale-[0.6] min-[425px]:scale-[0.65] md:scale-[0.75] lg:scale-[0.85] xl:scale-[0.8] min-[1200px]:scale-[0.8] min-[1400px]:scale-[0.85] min-[1600px]:scale-95 flex justify-center items-center w-full h-full relative overflow-visible">
             <motion.div
-              className="w-72 h-[585px] bg-linear-to-br from-[#1a1a1a] to-[#2d2d2d] rounded-[45px] p-3 shadow-[0_0_0_2px_#0a0a0a,0_0_0_6px_#3a3a3a,0_30px_60px_-15px_rgba(0,0,0,0.7),inset_0_1px_2px_rgba(255,255,255,0.1)] relative overflow-hidden md:overflow-visible"
+              className="w-72 h-[585px] bg-linear-to-br from-[#1a1a1a] to-[#2d2d2d] rounded-[45px] p-3 shadow-[0_0_0_2px_#0a0a0a,0_0_0_6px_#3a3a3a,0_30px_60px_-15px_rgba(0,0,0,0.7),inset_0_1px_2px_rgba(255,255,255,0.1)] relative overflow-visible"
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
@@ -104,33 +104,33 @@ const Hero = () => {
               </div>
 
               {/* Floating Card 1 - Top Left */}
-              <div className="hidden lg:flex absolute top-[15%] -left-[140px] w-[220px] bg-(--color-surface) rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-4 border border-white/10 animate-float z-50 text-white pointer-events-auto">
-                <div className="w-11 h-11 bg-[rgba(10,31,18,0.6)] rounded-xl flex items-center justify-center text-[1.4rem] text-(--color-accent)">
+              <div className="hidden md:flex absolute top-[15%] -left-[120px] lg:-left-[140px] w-[200px] lg:w-[220px] bg-(--color-surface) rounded-[20px] p-4 lg:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-3 lg:gap-4 border border-white/10 animate-float z-50 text-white pointer-events-auto">
+                <div className="w-10 h-10 lg:w-11 lg:h-11 bg-[rgba(10,31,18,0.6)] rounded-xl flex items-center justify-center text-[1.4rem] text-(--color-accent) shrink-0">
                   <Sprout size={20} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-white font-medium">Crop Growth</span>
+                  <span className="text-white font-medium text-sm lg:text-base">Crop Growth</span>
                   <strong className="text-white text-xl">+25%</strong>
                 </div>
               </div>
 
               {/* Floating Card 2 - Middle Right */}
-              <div className="hidden lg:flex absolute top-[45%] -right-[160px] w-[240px] bg-(--color-surface) rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-4 border border-white/10 animate-float-delayed z-50 text-white pointer-events-auto">
-                <div className="w-11 h-11 bg-[rgba(10,31,18,0.6)] rounded-xl flex items-center justify-center text-[1.4rem] text-(--color-accent)">
+              <div className="hidden md:flex absolute top-[45%] -right-[140px] lg:-right-[160px] w-[220px] lg:w-[240px] bg-(--color-surface) rounded-[20px] p-4 lg:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-3 lg:gap-4 border border-white/10 animate-float-delayed z-50 text-white pointer-events-auto">
+                <div className="w-10 h-10 lg:w-11 lg:h-11 bg-[rgba(10,31,18,0.6)] rounded-xl flex items-center justify-center text-[1.4rem] text-(--color-accent) shrink-0">
                   <TrendingUp size={20} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-white font-medium">Market Rate</span>
+                  <span className="text-white font-medium text-sm lg:text-base">Market Rate</span>
                   <strong className="text-white text-xl">+15%</strong>
                 </div>
               </div>
 
               {/* Floating Card 3 - Bottom Left */}
-              <div className="hidden lg:flex absolute bottom-[18%] -left-[100px] w-[200px] bg-(--color-surface) rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-4 border border-white/10 animate-float-slow z-50 text-white pointer-events-auto">
-                <div className="w-9 h-9 bg-[rgba(10,31,18,0.6)] rounded-full flex items-center justify-center text-(--color-accent) shrink-0">
+              <div className="hidden md:flex absolute bottom-[18%] -left-[80px] lg:-left-[100px] w-[180px] lg:w-[200px] bg-(--color-surface) rounded-[20px] p-4 lg:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-3 lg:gap-4 border border-white/10 animate-float-slow z-50 text-white pointer-events-auto">
+                <div className="w-8 h-8 lg:w-9 lg:h-9 bg-[rgba(10,31,18,0.6)] rounded-full flex items-center justify-center text-(--color-accent) shrink-0">
                   <User size={18} />
                 </div>
-                <span className="text-white font-medium">"Sold in 2hrs!"</span>
+                <span className="text-white font-medium text-sm lg:text-base">"Sold in 2hrs!"</span>
               </div>
 
               {/* Glow Effect */}

@@ -66,10 +66,6 @@ const TeamCarousel = ({ teamMembers = [] }) => {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* Gradient Overlays for fade effect */}
-        <div className="absolute inset-y-0 left-0 w-20 md:w-32 lg:w-40 bg-linear-to-r from-[#0B1E14] via-[#0B1E14]/90 to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-y-0 right-0 w-20 md:w-32 lg:w-40 bg-linear-to-l from-[#0B1E14] via-[#0B1E14]/90 to-transparent pointer-events-none z-10" />
-
         <div
           className={`flex will-change-transform team-carousel-animate ${isPaused ? 'team-carousel-paused' : ''}`}
           style={{
