@@ -1,12 +1,24 @@
 const ScrollToTop = ({ onScrollToTop }) => {
+  const handleClick = (e) => {
+    e.stopPropagation();
+    onScrollToTop();
+  };
+
+  const handleTouchStart = (e) => {
+    // Stop propagation to prevent document-level touch handlers from interfering
+    e.stopPropagation();
+  };
+
   return (
     <button
-      onClick={onScrollToTop}
-      className="fixed bottom-4 md:bottom-8 right-4 md:right-8 w-12 h-12 rounded-full bg-(--color-accent) flex items-center justify-center hover:opacity-90 transition-opacity shadow-lg z-50"
+      onClick={handleClick}
+      onTouchStart={handleTouchStart}
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-(--color-accent) flex items-center justify-center hover:opacity-90 active:opacity-75 transition-opacity shadow-lg z-[9999]"
+      style={{ touchAction: 'manipulation' }}
       aria-label="Scroll to top"
     >
       <svg
-        className="w-6 h-6 text-(--color-text-dark)"
+        className="w-5 h-5 sm:w-6 sm:h-6 text-(--color-text-dark)"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
