@@ -227,9 +227,50 @@ h6 {
   }
 }
 
+/* Hide horizontal scrollbars globally - Firefox and IE/Edge */
+html, body, #root {
+  scrollbar-width: thin; /* Firefox - thin scrollbar */
+  scrollbar-color: transparent transparent; /* Hide scrollbar but keep functionality */
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* IE and Edge - auto-hide */
+}
+
+/* Force hide horizontal scrollbars on containers */
+.snap-container, .snap-section {
+  scrollbar-width: none; /* Firefox - hide all scrollbars on these */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide horizontal scrollbars in WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar:horizontal,
+*::-webkit-scrollbar:horizontal {
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+::-webkit-scrollbar-track:horizontal,
+*::-webkit-scrollbar-track:horizontal {
+  display: none !important;
+}
+
+::-webkit-scrollbar-thumb:horizontal,
+*::-webkit-scrollbar-thumb:horizontal {
+  display: none !important;
+}
+
+html::-webkit-scrollbar:horizontal,
+body::-webkit-scrollbar:horizontal,
+#root::-webkit-scrollbar:horizontal,
+.snap-container::-webkit-scrollbar:horizontal,
+.snap-section::-webkit-scrollbar:horizontal {
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
 .snap-container::-webkit-scrollbar {
   display: none;
-  /* Chrome/Safari */
+  /* Chrome/Safari - hides vertical scrollbar */
 }
 
 .snap-section {
@@ -264,11 +305,33 @@ h6 {
     box-sizing: border-box;
   }
   
+  /* Exception for carousel track - allow it to expand */
+  .team-carousel-animate,
+  .team-carousel-animate * {
+    max-width: none !important;
+  }
+  
   /* Force all direct children to respect viewport */
   .snap-section > * {
     width: 100% !important;
     max-width: 100% !important;
     overflow-x: hidden !important;
+  }
+  
+  /* Exception for carousel components */
+  .team-carousel-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  .team-carousel-wrapper .team-carousel-animate {
+    width: max-content !important;
+    min-width: 200% !important;
+    max-width: none !important;
+  }
+  .team-carousel-wrapper .team-carousel-animate > * {
+    max-width: none !important;
+    flex-shrink: 0 !important;
   }
 }
 
@@ -329,11 +392,22 @@ h6 {
     box-sizing: border-box;
   }
   
+  /* Exception for carousel track - allow it to expand */
+  .team-carousel-animate,
+  .team-carousel-animate * {
+    max-width: none !important;
+  }
+  
   /* Ensure grid and flex containers don't overflow */
   .container > * {
     width: 100% !important;
     max-width: 100% !important;
     overflow-x: hidden !important;
+  }
+  
+  /* Exception for carousel track to allow expansion */
+  .team-carousel-wrapper .team-carousel-animate {
+    max-width: none !important;
   }
 }
 
@@ -362,15 +436,31 @@ button {
 
 /* Navigation Logo Sizing */
 .nav-logo {
-  height: 20px;
-  max-height: 20px;
+  height: 16px;
+  max-height: 16px;
+  max-width: 80px;
+  width: auto;
+}
+
+@media (min-width: 764px) {
+  .nav-logo {
+    height: 32px;
+    max-height: none;
+    max-width: none;
+  }
+}
+
+/* Footer Logo Sizing */
+.footer-logo {
+  height: 24px;
+  max-height: 24px;
   max-width: 100px;
   width: auto;
 }
 
-@media (min-width: 768px) {
-  .nav-logo {
-    height: 32px;
+@media (min-width: 764px) {
+  .footer-logo {
+    height: 48px;
     max-height: none;
     max-width: none;
   }
@@ -447,6 +537,89 @@ button {
   animation: scrolling 20s linear infinite;
 }
 
+.animate-scrolling-paused {
+  animation: scrolling 20s linear infinite;
+  animation-play-state: paused;
+}
+
 .group:hover .animate-scrolling {
   animation-play-state: paused;
+}
+
+/* Responsive animation speeds */
+@media (max-width: 640px) {
+  .animate-scrolling {
+    animation: scrolling 15s linear infinite;
+  }
+  
+  .animate-scrolling-paused {
+    animation: scrolling 15s linear infinite;
+    animation-play-state: paused;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .animate-scrolling {
+    animation: scrolling 30s linear infinite;
+  }
+  
+  .animate-scrolling-paused {
+    animation: scrolling 30s linear infinite;
+    animation-play-state: paused;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .animate-scrolling {
+    animation: scrolling 25s linear infinite;
+  }
+}
+
+/* 3D Perspective Carousel Styles */
+.perspective-1000 {
+  perspective: 1000px;
+  perspective-origin: center center;
+}
+
+.perspective-1000 * {
+  transform-style: preserve-3d;
+}
+
+/* Team slider responsive improvements */
+@media (max-width: 640px) {
+  .snap-section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  .container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  /* Disable hover effects on mobile */
+  .group:hover {
+    transform: none !important;
+  }
+  
+  .group:hover .group-hover\:border-\(--color-accent\)\/50 {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+}
+
+/* Team member card unique layout styles */
+.team-member-card {
+  perspective: 1000px;
+}
+
+@media (min-width: 1024px) {
+  .team-member-card {
+    transform: translateY(var(--offset-y, 0));
+  }
+}
+
+@media (max-width: 1023px) {
+  .team-member-card {
+    transform: translateY(0) !important;
+  }
 }

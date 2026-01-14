@@ -94,6 +94,8 @@ const Hero = () => {
                     src="/images/regrov-icon.png"
                     alt="Regrov Logo"
                     className="w-full h-auto object-contain"
+                    loading="eager"
+                    fetchPriority="high"
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 0.9, scale: 1 }}
                     transition={{ delay: 1, duration: 1 }}

@@ -31,7 +31,14 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <img src="/images/logo.svg" alt="Regrov" className="h-12 w-auto mb-4" />
+            <img 
+              src="/images/logo.svg" 
+              alt="Regrov" 
+              className="footer-logo w-auto mb-4"
+              loading="lazy"
+              width="120"
+              height="48"
+            />
             <p className="text-(--color-text-muted) text-sm italic leading-relaxed max-w-[300px]">
               &quot;To become the world&apos;s most trusted digital ecosystem for farmers.&quot;
             </p>

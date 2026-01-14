@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import Navigation from './components/Navigation';
 import SlideNavigator from './components/SlideNavigator';
 import ScrollToTop from './components/ScrollToTop';
@@ -196,7 +196,7 @@ function App() {
     };
   }, []);
 
-  const slides = [
+  const slides = useMemo(() => [
     { id: 'hero', component: <Hero /> },
     { id: 'problem', component: <Problem /> },
     { id: 'solution', component: <Solution /> },
@@ -204,9 +204,9 @@ function App() {
     { id: 'business', component: <Business /> },
     { id: 'roadmap', component: <Roadmap /> },
     { id: 'team', component: <Team /> },
-  ];
+  ], []);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     if (containerRef.current) {
       const scrollValues = containerRef.current.scrollTop;
       const height = window.innerHeight;
@@ -220,9 +220,9 @@ function App() {
         setActiveSlide(clampedIndex);
       }
     }
-  };
+  }, [activeSlide, slides.length]);
 
-  const scrollToSlide = (index) => {
+  const scrollToSlide = useCallback((index) => {
     if (containerRef.current) {
       containerRef.current.scrollTo({
         top: index * window.innerHeight,
@@ -230,11 +230,11 @@ function App() {
       });
       setActiveSlide(index);
     }
-  };
+  }, []);
 
-  const scrollToTop = () => {
+  const scrollToTop = useCallback(() => {
     scrollToSlide(0);
-  };
+  }, [scrollToSlide]);
 
   return (
     <div 
