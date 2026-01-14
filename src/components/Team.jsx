@@ -1,113 +1,60 @@
 import { motion } from 'framer-motion';
+import TeamCarousel from './TeamCarousel';
+
+import jacobImg from '../assets/images/jacob.png';
+import thomasImg from '../assets/images/thomas.jpeg';
+import karthikImg from '../assets/images/karthik.jpg';
+import shijuImg from '../assets/images/shiju.jpg';
+import surajImg from '../assets/images/suraj.jpg';
+import jonoImg from '../assets/images/jono.jpg';
+import alanImg from '../assets/images/alan.jpg';
+import joyesImg from '../assets/images/joyes.jpg';
+import christoImg from '../assets/images/christo.jpg';
+import gritoImg from '../assets/images/grito.webp';
 
 const Team = () => {
   const teamMembers = [
-    { name: 'Jacob', role: 'Founder, CEO', image: '/images/jacob.png' },
-    { name: 'Thomas', role: 'Co-founder, COO', image: '/images/thomas.jpeg' },
-    { name: 'Karthik', role: 'CFO', image: '/images/karthik.jpg' },
-    { name: 'Shiju', role: 'CTO', image: '/images/shiju.jpg' },
-    { name: 'Sooraj', role: 'Team Lead, IT', image: '/images/suraj.jpg' },
-    { name: 'Jono', role: 'CMO', image: '/images/jono.jpg' },
-    { name: 'Alan', role: 'Marketing Member', image: '/images/alan.jpg' },
-    { name: 'Joyes', role: 'Human Resource', image: '/images/joyes.jpg' },
-    { name: 'Christo', role: 'Financial Advisor', image: '/images/christo.jpg' }
+    { name: 'Jacob', role: 'Founder, CEO', image: jacobImg },
+    { name: 'Thomas', role: 'Co-founder, COO', image: thomasImg },
+    { name: 'Karthik', role: 'CFO', image: karthikImg },
+    { name: 'Shiju', role: 'CTO', image: shijuImg },
+    { name: 'Sooraj', role: 'Team Lead, IT', image: surajImg },
+    { name: 'Jono', role: 'CMO', image: jonoImg },
+    { name: 'Alan', role: 'Marketing Member', image: alanImg },
+    { name: 'Joyes', role: 'Human Resource', image: joyesImg },
+    { name: 'Christo', role: 'Financial Advisor', image: christoImg },
+    { name: 'Grito', role: 'AI/ML', image: gritoImg }
   ];
 
   return (
-    <div className="snap-section min-h-screen w-full flex items-center justify-center bg-[#0B1E14] py-16 relative">
-      <div className="container h-full">
-        <div className="flex flex-col items-center w-full max-w-[1800px] mx-auto">
+    <div className="snap-section min-h-screen w-full flex items-center justify-center bg-[#0B1E14] py-8 md:py-16 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-(--color-accent)/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-(--color-accent)/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
+
+      <div className="container h-full w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col items-center w-full">
           <motion.div
-            className="w-full"
+            className="w-full mb-8 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <span className="text-(--color-accent) uppercase tracking-[2px] text-xs mb-2 block text-center">
+            <span className="text-(--color-accent) uppercase tracking-[2px] text-xs mb-2 block text-center font-semibold">
               Our Team
             </span>
-            <h2 className="text-[2rem] md:text-[3rem] text-white text-center mb-12 px-4">
+            <h2 className="text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem] text-white text-center font-serif">
               Leadership & Visionaries
             </h2>
-
-            {/* Carousel Container */}
-            <div className="relative w-full max-w-[2000px] mx-auto py-4 group overflow-hidden">
-              <div className="flex w-full">
-                {/* First Group */}
-                <div className="flex gap-8 pr-8 will-change-transform animate-scrolling shrink-0">
-                  {teamMembers.map((member, index) => (
-                    <motion.div
-                      key={`${member.name}-first-${index}`}
-                      className="flex flex-col items-center gap-6 bg-white/3 p-8 rounded-3xl border border-white/5 text-center min-w-[250px] max-w-[250px] shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)] hover:bg-white/5 shrink-0"
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <div className="w-[120px] h-[120px] rounded-full flex items-center justify-center overflow-hidden shrink-0 mb-2 border-[3px] border-white/10 bg-white/5">
-                        {member.image ? (
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover rounded-full"
-                            onError={(e) => {
-                              const img = e.target;
-                              const fallback = img.nextElementSibling;
-                              if (img) img.style.display = 'none';
-                              if (fallback) fallback.style.display = 'flex';
-                            }}
-                          />
-                        ) : null}
-                        <div className="w-full h-full hidden items-center justify-center font-bold text-(--color-accent) text-2xl bg-white/10" style={{ display: member.image ? 'none' : 'flex' }}>
-                          {member.name.charAt(0)}
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="text-white text-xl mb-1">{member.name}</h3>
-                        <span className="text-[#888] text-sm block">{member.role}</span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-                {/* Second Group (for seamless loop) */}
-                <div className="flex gap-8 pr-8 will-change-transform animate-scrolling shrink-0" aria-hidden="true">
-                  {teamMembers.map((member, index) => (
-                    <motion.div
-                      key={`${member.name}-second-${index}`}
-                      className="flex flex-col items-center gap-6 bg-white/3 p-8 rounded-3xl border border-white/5 text-center min-w-[250px] max-w-[250px] shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)] hover:bg-white/5 shrink-0"
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <div className="w-[120px] h-[120px] rounded-full flex items-center justify-center overflow-hidden shrink-0 mb-2 border-[3px] border-white/10 bg-white/5">
-                        {member.image ? (
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover rounded-full"
-                            onError={(e) => {
-                              const img = e.target;
-                              const fallback = img.nextElementSibling;
-                              if (img) img.style.display = 'none';
-                              if (fallback) fallback.style.display = 'flex';
-                            }}
-                          />
-                        ) : null}
-                        <div className="w-full h-full hidden items-center justify-center font-bold text-(--color-accent) text-2xl bg-white/10" style={{ display: member.image ? 'none' : 'flex' }}>
-                          {member.name.charAt(0)}
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="text-white text-xl mb-1">{member.name}</h3>
-                        <span className="text-[#888] text-sm block">{member.role}</span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
           </motion.div>
+
+          {/* Team Carousel */}
+          <div className="w-full">
+            <TeamCarousel teamMembers={teamMembers} />
+          </div>
         </div>
       </div>
     </div>
