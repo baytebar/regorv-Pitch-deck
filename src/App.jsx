@@ -233,8 +233,14 @@ function App() {
   }, []);
 
   const scrollToTop = useCallback(() => {
-    scrollToSlide(0);
-  }, [scrollToSlide]);
+    if (containerRef.current) {
+      containerRef.current.scrollTo({
+        top: 0,
+        behavior: 'auto' // Instant scroll
+      });
+      setActiveSlide(0);
+    }
+  }, []);
 
   return (
     <div 
