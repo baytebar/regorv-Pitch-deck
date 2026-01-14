@@ -36,7 +36,7 @@ const Navigation = () => {
               <img 
                 src="/images/logo.svg" 
                 alt="REGROV" 
-                className="nav-logo w-auto md:h-8 md:max-w-none"
+                className="nav-logo w-auto md:h-8 md:max-w-none" 
                 loading="eager"
                 fetchPriority="high"
                 width="120"
@@ -103,7 +103,7 @@ const Navigation = () => {
               <img 
                 src="/images/logo.svg" 
                 alt="REGROV" 
-                className="nav-logo w-auto"
+                className="nav-logo w-auto" 
                 loading="eager"
                 width="120"
                 height="32"

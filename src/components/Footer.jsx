@@ -17,7 +17,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="snap-section footer-section w-full bg-linear-to-b from-[#0D2818] to-[#0A1F12] border-t border-white/5 py-20 pb-8 relative overflow-hidden ">
+    <footer className="w-full bg-linear-to-b from-[#0D2818] to-[#0A1F12] border-t border-white/5 pt-20 pb-0 relative overflow-hidden">
       {/* Decorative line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-(--color-accent) to-transparent opacity-30"></div>
       

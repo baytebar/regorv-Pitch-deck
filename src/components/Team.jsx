@@ -24,7 +24,7 @@ const Team = () => {
     { name: 'Joyes', role: 'Human Resource', image: joyesImg },
     { name: 'Christo', role: 'Financial Advisor', image: christoImg },
     { name: 'Grito', role: 'AI/ML', image: gritoImg }
-  ];
+    ];
 
   return (
     <div className="snap-section min-h-screen w-full flex items-center justify-center bg-[#0B1E14] py-8 md:py-16 relative overflow-hidden">

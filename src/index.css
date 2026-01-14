@@ -199,6 +199,7 @@ h6 {
   /* IE/Edge */
   position: relative;
   height: 100vh;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 768px) {
@@ -224,6 +225,7 @@ h6 {
   .snap-container {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+    scroll-behavior: smooth;
   }
 }
 
@@ -354,9 +356,28 @@ body::-webkit-scrollbar:horizontal,
 
 .snap-section.footer-section {
   scroll-snap-align: none;
-  min-height: auto;
-  height: auto;
+  min-height: auto !important;
+  height: auto !important;
   align-items: flex-start;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.snap-section.footer-section > footer {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .snap-section.footer-section {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .snap-section.footer-section > footer {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
 }
 
 @media (min-width: 769px) {
@@ -460,9 +481,9 @@ button {
 
 @media (min-width: 764px) {
   .footer-logo {
-    height: 48px;
-    max-height: none;
-    max-width: none;
+    height: 36px;
+    max-height: 36px;
+    max-width: 150px;
   }
 }
 
