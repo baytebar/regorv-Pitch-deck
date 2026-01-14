@@ -35,16 +35,8 @@
   position: relative;
 }
 
-@media (max-width: 768px) {
-  #root {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    position: relative;
-    left: 0 !important;
-    right: 0 !important;
-  }
-}
+
+
 
 
 html {
@@ -167,6 +159,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
   /* Hide main window scroll, we handle it in App container */
 }
 
@@ -361,28 +355,47 @@ body::-webkit-scrollbar:horizontal,
   align-items: flex-start;
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .snap-section.footer-section > footer {
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
   .snap-section.footer-section {
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
   }
   
   .snap-section.footer-section > footer {
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    width: 100%;
   }
 }
 
 @media (min-width: 769px) {
   .snap-section.footer-section {
     scroll-snap-align: end;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  .snap-section.footer-section > footer {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    width: 100%;
   }
 }
 

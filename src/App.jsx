@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import Navigation from './components/Navigation';
 import SlideNavigator from './components/SlideNavigator';
-import ScrollToTop from './components/ScrollToTop';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
 import Solution from './components/Solution';
@@ -232,19 +231,9 @@ function App() {
     }
   }, []);
 
-  const scrollToTop = useCallback(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-      setActiveSlide(0);
-    }
-  }, []);
-
   return (
     <div 
-      className="w-full h-full overflow-x-hidden" 
+      className="w-full h-full overflow-x-hidden py-0 mb-0" 
       style={{ 
         touchAction: 'pan-y', 
         overscrollBehaviorX: 'none',
@@ -262,7 +251,6 @@ function App() {
         count={slides.length}
         onSelect={scrollToSlide}
       />
-      <ScrollToTop onScrollToTop={scrollToTop} />
 
       <main
         ref={containerRef}
