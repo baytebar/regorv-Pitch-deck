@@ -148,8 +148,8 @@ const StyledCarousel = ({
 
         {/* Gradient Overlays for better visibility */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#0B1E14] to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#0B1E14] to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-linear-to-r from-[#0B1E14] to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-linear-to-l from-[#0B1E14] to-transparent z-10" />
         </div>
       </div>
 

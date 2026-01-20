@@ -71,7 +71,7 @@ const Hero = () => {
           {/* Right Visual - Phone Mockup */}
           <div className="-rotate-12 scale-[0.55] min-[320px]:scale-[0.55] min-[375px]:scale-[0.6] min-[425px]:scale-[0.65] md:scale-[0.75] lg:scale-[0.85] xl:scale-[0.8] min-[1200px]:scale-[0.8] min-[1400px]:scale-[0.85] min-[1600px]:scale-95 flex justify-center items-center w-full h-full relative overflow-visible">
             {/* Floating Card 1 - Top Left */}
-            <div className="flex absolute top-[5%] left-[5%] md:top-[15%] md:left-0 md:-left-[120px] lg:-left-[140px] w-[140px] sm:w-[160px] md:w-[200px] lg:w-[220px] bg-(--color-surface) rounded-[20px] p-3 md:p-4 lg:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-2 md:gap-3 lg:gap-4 border border-white/10 animate-float z-50 text-white pointer-events-auto">
+            <div className="flex absolute top-[5%] left-[5%] md:top-[15%] md:-left-[120px] lg:-left-[140px] w-[140px] sm:w-[160px] md:w-[200px] lg:w-[220px] bg-(--color-surface) rounded-[20px] p-3 md:p-4 lg:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-2 md:gap-3 lg:gap-4 border border-white/10 animate-float z-50 text-white pointer-events-auto">
               <div className="w-8 h-8 md:w-10 md:h-10 lg:w-11 lg:h-11 bg-[rgba(10,31,18,0.6)] rounded-xl flex items-center justify-center text-[1.4rem] text-(--color-accent) shrink-0">
                 <Sprout size={16} className="md:w-5 md:h-5" />
               </div>
@@ -82,7 +82,7 @@ const Hero = () => {
             </div>
 
             {/* Floating Card 2 - Middle Right */}
-            <div className="flex absolute top-[35%] right-[5%] md:top-[45%] md:right-0 md:-right-[140px] lg:-right-[160px] w-[150px] sm:w-[170px] md:w-[220px] lg:w-[240px] bg-(--color-surface) rounded-[20px] p-3 md:p-4 lg:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-2 md:gap-3 lg:gap-4 border border-white/10 animate-float-delayed z-50 text-white pointer-events-auto">
+            <div className="flex absolute top-[35%] right-[5%] md:top-[45%] md:-right-[140px] lg:-right-[160px] w-[150px] sm:w-[170px] md:w-[220px] lg:w-[240px] bg-(--color-surface) rounded-[20px] p-3 md:p-4 lg:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-2 md:gap-3 lg:gap-4 border border-white/10 animate-float-delayed z-50 text-white pointer-events-auto">
               <div className="w-8 h-8 md:w-10 md:h-10 lg:w-11 lg:h-11 bg-[rgba(10,31,18,0.6)] rounded-xl flex items-center justify-center text-[1.4rem] text-(--color-accent) shrink-0">
                 <TrendingUp size={16} className="md:w-5 md:h-5" />
               </div>
@@ -93,7 +93,7 @@ const Hero = () => {
             </div>
 
             {/* Floating Card 3 - Bottom Left */}
-            <div className="flex absolute bottom-[10%] left-[5%] md:bottom-[18%] md:left-0 md:-left-[80px] lg:-left-[100px] w-[120px] sm:w-[140px] md:w-[180px] lg:w-[200px] bg-(--color-surface) rounded-[20px] p-3 md:p-4 lg:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-2 md:gap-3 lg:gap-4 border border-white/10 animate-float-slow z-50 text-white pointer-events-auto">
+            <div className="flex absolute bottom-[10%] left-[5%] md:bottom-[18%] md:-left-[80px] lg:-left-[100px] w-[120px] sm:w-[140px] md:w-[180px] lg:w-[200px] bg-(--color-surface) rounded-[20px] p-3 md:p-4 lg:p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] items-center gap-2 md:gap-3 lg:gap-4 border border-white/10 animate-float-slow z-50 text-white pointer-events-auto">
               <div className="w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 bg-[rgba(10,31,18,0.6)] rounded-full flex items-center justify-center text-(--color-accent) shrink-0">
                 <User size={14} className="md:w-4 md:h-4 lg:w-[18px] lg:h-[18px]" />
               </div>

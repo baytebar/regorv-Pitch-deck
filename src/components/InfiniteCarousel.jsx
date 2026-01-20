@@ -31,8 +31,8 @@ const InfiniteCarousel = ({
     >
       {/* Gradient Overlays for depth effect - Responsive */}
       <div className="absolute inset-0 pointer-events-none z-10">
-        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-16 md:w-24 lg:w-32 bg-gradient-to-r from-[#0B1E14] via-[#0B1E14]/80 to-transparent" />
-        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-16 md:w-24 lg:w-32 bg-gradient-to-l from-[#0B1E14] via-[#0B1E14]/80 to-transparent" />
+        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-16 md:w-24 lg:w-32 bg-linear-to-r from-[#0B1E14] via-[#0B1E14]/80 to-transparent" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-16 md:w-24 lg:w-32 bg-linear-to-l from-[#0B1E14] via-[#0B1E14]/80 to-transparent" />
       </div>
 
       <div className={`flex w-full relative ${containerClassName}`}>

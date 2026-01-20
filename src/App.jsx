@@ -8,6 +8,7 @@ import Market from './components/Market';
 import Business from './components/Business';
 import Roadmap from './components/Roadmap';
 import Team from './components/Team';
+import AppDownload from './components/AppDownload';
 import Footer from './components/Footer';
 
 function App() {
@@ -203,6 +204,7 @@ function App() {
     { id: 'business', component: <Business /> },
     { id: 'roadmap', component: <Roadmap /> },
     { id: 'team', component: <Team /> },
+    { id: 'app-download', component: <AppDownload /> },
   ], []);
 
   const handleScroll = useCallback(() => {
