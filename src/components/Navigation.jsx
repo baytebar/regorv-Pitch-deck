@@ -4,22 +4,41 @@ import { Menu, X } from 'lucide-react';
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isOverWhiteSection, setIsOverWhiteSection] = useState(false);
+  const [isOverFooter, setIsOverFooter] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const container = document.querySelector('.snap-container');
       
-      // Check if we're over the app-download section (white background)
-      const appDownloadSection = document.getElementById('app-download');
-      if (appDownloadSection) {
-        const rect = appDownloadSection.getBoundingClientRect();
-        const isInView = rect.top <= 100 && rect.bottom >= 0;
-        setIsOverWhiteSection(isInView);
+      if (container) {
+        // Check scroll position of container
+        const scrollTop = container.scrollTop;
+        setIsScrolled(scrollTop > 50);
+        
+        // Check if we're over the footer section
+        const footerSection = document.getElementById('footer');
+        if (footerSection) {
+          const containerRect = container.getBoundingClientRect();
+          const footerRect = footerSection.getBoundingClientRect();
+          
+          // Check if footer is visible in the container's viewport
+          const isInView = footerRect.top <= containerRect.top + 100 && footerRect.bottom >= containerRect.top;
+          setIsOverFooter(isInView);
+        }
+      } else {
+        // Fallback to window scroll
+        setIsScrolled(window.scrollY > 50);
+        
+        const footerSection = document.getElementById('footer');
+        if (footerSection) {
+          const rect = footerSection.getBoundingClientRect();
+          const isInView = rect.top <= 100 && rect.bottom >= 0;
+          setIsOverFooter(isInView);
+        }
       }
     };
 
-    // Also check on mount and when container scrolls
+    // Check on mount and when container scrolls
     const container = document.querySelector('.snap-container');
     if (container) {
       container.addEventListener('scroll', handleScroll);
@@ -28,10 +47,33 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check
     
+    // Also use Intersection Observer for more reliable footer detection
+    const footerSection = document.getElementById('footer');
+    let observer;
+    if (footerSection && 'IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // Footer is in view when it intersects with the viewport
+            setIsOverFooter(entry.isIntersecting || entry.boundingClientRect.top < 200);
+          });
+        },
+        {
+          root: null, // Use viewport as root
+          rootMargin: '-100px 0px 0px 0px',
+          threshold: [0, 0.1, 0.5, 1]
+        }
+      );
+      observer.observe(footerSection);
+    }
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (container) {
         container.removeEventListener('scroll', handleScroll);
+      }
+      if (observer) {
+        observer.disconnect();
       }
     };
   }, []);
@@ -44,11 +86,11 @@ const Navigation = () => {
     }
   };
 
-  const textColorClass = isOverWhiteSection ? 'text-gray-900' : 'text-white';
-  const hoverColorClass = isOverWhiteSection ? 'hover:text-[#2D6A4F]' : 'hover:text-(--color-accent)';
-  const navBgClass = isOverWhiteSection 
-    ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-    : (isScrolled ? 'bg-(--color-bg)/90 backdrop-blur-md shadow-lg' : 'bg-transparent');
+  const textColorClass = 'text-white';
+  const hoverColorClass = 'hover:text-(--color-accent)';
+  const navBgClass = isOverFooter || isScrolled 
+    ? 'bg-(--color-bg)/90 backdrop-blur-md shadow-lg' 
+    : 'bg-transparent';
 
   return (
     <>
